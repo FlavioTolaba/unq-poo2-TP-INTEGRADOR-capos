@@ -32,7 +32,7 @@ class UbicacionManagerTest {
 		double resultado=manager.distanciaEntreDosUbicaciones(ubicacion1, ubicacion2);
 		assertEquals(resultado,6.708203932499369);
 	}
-	
+	//caso borde probar con un numero periodico
 	@Test
 	//por convencion decimos que los enteros de nuestro programa son KMS en caso de querer metros hay que hacer la conversion
 	void testListaDeUbicacionesAXKilometros() {

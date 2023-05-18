@@ -1,6 +1,8 @@
 package tpIntegrador;
 
-import java.util.ArrayList;
+
+import java.util.List;
+
 
 public class UbicacionManager{
 	
@@ -14,10 +16,19 @@ public class UbicacionManager{
 		return resultadoFinal;
 	}
 	//falta test
-	public ArrayList<Ubicacion> ubicacionesEnRango(double distancia,ArrayList<Ubicacion> listaUbicaciones,Ubicacion ubicacion2) {
-		 return ConvertidorStreamArray.getArrayListFromStream(listaUbicaciones.stream().filter(ubicacion -> this.distanciaEntreDosUbicaciones(ubicacion, ubicacion2) <=  distancia));
+/*	public ArrayList<Ubicacion> ubicacionesEnRango(double distancia,ArrayList<Ubicacion> listaUbicaciones,Ubicacion ubicacion2) {
+		 return ConvertidorStreamArray.getArrayListFromStream(
+				 listaUbicaciones.stream()
+				 .filter(
+						 ubicacion -> this.distanciaEntreDosUbicaciones(ubicacion, ubicacion2) <=  distancia));
 	}
-
+*/
+	public List<Ubicacion> ubicacionesEnRango(double distancia,List<Ubicacion> listaUbicaciones,Ubicacion ubicacion2) {
+		 return listaUbicaciones.stream()
+				 .filter(
+						 ubicacion -> this.distanciaEntreDosUbicaciones(ubicacion, ubicacion2) <=  distancia).toList();
+	}
+	
 	public double radioUbicacion(Ubicacion ubicacion) {
 		
 	}
