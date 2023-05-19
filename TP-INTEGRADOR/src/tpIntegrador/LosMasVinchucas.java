@@ -2,7 +2,7 @@ package tpIntegrador;
 
 import java.util.List;
 
-public class LosMasVinchucas {
+public class LosMasVinchucas implements Obeserver{
 	private List<Participante> participantes;
 	private List<Muestra> muestras;
 	private List<Organizacion> organizaciones;
