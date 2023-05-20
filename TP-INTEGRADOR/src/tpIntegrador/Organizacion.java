@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Organizacion implements FuncionalidadExterna, Observer{
+public class Organizacion implements FuncionalidadExterna,Observador{
 
 	private TipoOrganizacion tipoOrganizacion;
 	private int cantidadEmpleados;
@@ -30,9 +30,5 @@ public class Organizacion implements FuncionalidadExterna, Observer{
 		this.zonasDeCobertura.add(zonaDeCobertura1);
 	}
 
-	@Override
-	public void update(Observable o, Object arg) {
-		
-	}
 
 }
