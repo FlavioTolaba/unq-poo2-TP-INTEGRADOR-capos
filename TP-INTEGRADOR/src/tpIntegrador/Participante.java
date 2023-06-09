@@ -4,73 +4,77 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.ArrayList;
 
 public class Participante {
 	
-    private String nombre;
-    private int nivel;
-    private boolean esEspecialista;
+    private long id;	
+	private String nombre;
     private LocalDate fechaUltimoCambioNivel;
-    private List<Muestra> muestrasEnviadas;
+	protected List<Muestra> muestrasEnviadas;
     private List<Opinion> opinionesRealizadas;
+    
+   
 
     public Participante(String nombre) {
         
+    	this.id = 1000;
     	this.nombre = nombre;
-        this.nivel = 1; // nivel básico
-        this.esEspecialista = false;
         this.fechaUltimoCambioNivel = LocalDate.now();
         this.muestrasEnviadas = new ArrayList<Muestra>();
         this.opinionesRealizadas = new ArrayList<Opinion>();
     }	
-    //La aplicacion debe hacer enviar muestra
+    
+    public String getNombre() {
+    	return this.nombre;
+    }
+    
+    
     public void enviarMuestra(Muestra muestra) {
         muestrasEnviadas.add(muestra);
     }
-
-    public void opinar(Muestra muestra, int valoracion) {
-        // verificar si el participante puede opinar sobre la muestra
-        if (!muestrasEnviadas.contains(muestra) && !haOpinadoParaMuestra(muestra)) {
-            opinionesRealizadas.add(new Opinion(muestra, valoracion, nivel));
-        }
+    
+    public void enviarOpinion(Opinion opinion) {
+        opinionesRealizadas.add(opinion);
     }
+    
+    public ClaseParticipante getNivelUsuario() {
 
-    private boolean haOpinadoParaMuestra(Muestra muestra) {
-        for (Opinion opinion : opinionesRealizadas) {
-            if (opinion.getMuestra().equals(muestra)) {
-                return true;
-            }
-        }
-        return false;
+    	ClaseParticipante nivel;
+    	
+    	if(this.getCantidadDeMuestrasEnviadas()>=10 && this.getCantidadDeOpinionesEnviadas()>=20) {
+    		nivel = ClaseParticipante.EXPERTO;
+    	} else {
+    		nivel = ClaseParticipante.BASICO;
+    	}
+    	
+    	return nivel;
     }
+    
 
-    public void cambiarNivel() {
-        int envios = 0;
-        int revisiones = 0;
-        LocalDate fechaDesde = LocalDate.now().minusDays(30);
-
-        // contar los envíos y revisiones realizados en los últimos 30 días
-        for (Opinion opinion : opinionesRealizadas) {
-            if (opinion.getFecha().isAfter(fechaDesde)) {
-                if (opinion.getNivel() > 1) {
-                    revisiones++;
-                } else {
-                    envios++;
-                }
-            }
-        }
-
-        // si es especialista, se mantiene siempre en nivel experto
-        if (esEspecialista) {
-            nivel = 2;
-        } else {
-            // si se cumple la regla de promoción, se sube de nivel
-            if (envios > 10 && revisiones > 20 && fechaUltimoCambioNivel.isBefore(fechaDesde)) {
-                nivel = 2;
-                fechaUltimoCambioNivel = LocalDate.now();
-            } else {
-                nivel = 1;
-            }
-        }
+    
+    public List<Muestra> getMuestrasEnviadas() {
+		return muestrasEnviadas;
+	}
+    
+    public List<Opinion> getOpinionesEnviadas() {
+		return opinionesRealizadas;
+	}
+    
+    public int getCantidadDeMuestrasEnviadas() {
+    	
+    	int cantidad = this.getMuestrasEnviadas().size();
+    	return cantidad;
+    	
     }
+    
+    public int getCantidadDeOpinionesEnviadas() {
+    	
+    	int cantidad = this.getOpinionesEnviadas().size();
+    	return cantidad;
+    	
+    }
+    
+
+
 }
