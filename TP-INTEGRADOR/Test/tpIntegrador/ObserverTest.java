@@ -16,6 +16,5 @@ class ObserverTest {
 		fail("Not yet implemented");
 	}
 	
-	void test
 
 }

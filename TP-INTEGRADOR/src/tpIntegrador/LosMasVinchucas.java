@@ -8,8 +8,23 @@ public class LosMasVinchucas implements UObservable {
 	private List<Muestra> muestras;
 	private List<Organizacion> organizaciones;
 	private List<Observador> observadores = new ArrayList<Observador>();
+	@Override
+	public void añadirObservador(Observador observador) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void eliminarObservador(Observador observador) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void notificarObservadores() {
+		// TODO Auto-generated method stub
+		
+	}
 
-	public void participanteCargaMuestra(Participante participante){
+/*	public void participanteCargaMuestra(Participante participante){
 		//filtrar participante de la lista de participantes de la app
 		Muestra muestra=new Muestra();
 		participante.enviarMuestra();
@@ -37,8 +52,9 @@ public class LosMasVinchucas implements UObservable {
 		public void notificarObservadores() {
 			this.observadores.forEach(observador -> observador.recibirNotificacion());		
 		}
-
+*/
 	public List<Observador> getObservadores() {
 		return this.observadores;
 	}
+	
 }

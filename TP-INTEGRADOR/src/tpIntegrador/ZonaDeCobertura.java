@@ -6,13 +6,13 @@ public class ZonaDeCobertura {
 	private Ubicacion epicentro;
 	private int radio;
 	private String nombre;
-	private ArrayList<Muestra> muestrasReportadas;
-
-	public ArrayList<ZonaDeCobertura> zonasSolapadas(){
+	private ArrayList<Muestra> muestrasReportadas; 
+	
+/*	public ArrayList<ZonaDeCobertura> zonasSolapadas(){
 		
 		return 
 	}
-
+*/
 }
 
 

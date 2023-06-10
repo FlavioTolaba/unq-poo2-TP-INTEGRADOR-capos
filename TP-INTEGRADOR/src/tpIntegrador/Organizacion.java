@@ -30,5 +30,18 @@ public class Organizacion implements FuncionalidadExterna,Observador{
 		this.zonasDeCobertura.add(zonaDeCobertura1);
 	}
 
+	@Override
+	public void recibirNotificacion() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void nuevoEvento() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 }
