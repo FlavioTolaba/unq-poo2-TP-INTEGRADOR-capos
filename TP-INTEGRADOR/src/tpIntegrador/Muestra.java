@@ -1,5 +1,10 @@
 package tpIntegrador;
 
+
+public class Muestra {
+
+}
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -84,7 +89,7 @@ public class Muestra {
 			this.setResultadoActual(result.get().getTipoOpinion());
 		}
 	}
-<<<<<<< HEAD
+
 		//this.setResultadoActual(resultadoActual);
 	//}
 	//debo crear al parcipante Experto
@@ -92,6 +97,6 @@ public class Muestra {
 	//	return muestra.
 //	}
 }
-=======
+
 }
->>>>>>> muestra-Flavio
+

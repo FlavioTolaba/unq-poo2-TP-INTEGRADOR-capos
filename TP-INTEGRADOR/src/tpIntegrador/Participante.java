@@ -84,6 +84,8 @@ package tpIntegrador;
 
 public class Participante {
 
+<<<<<<< HEAD
+=======
 
 	private int id;
 	
@@ -91,5 +93,6 @@ public class Participante {
 		// TODO Auto-generated method stub
 		return this.id;
 	}
+>>>>>>> main
 }
 >>>>>>> main
