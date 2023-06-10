@@ -68,6 +68,11 @@ public class Muestra {
 		this.getOpiniones().add(opinion);
 	}
 	
+	public boolean tieneUnaOpinionDeParticipante(Participante participante) {
+		return this.getOpiniones().stream().anyMatch(p -> p.getParticipante().equals(participante));
+	}
+	
+	
 	//metodos
 	public void resultadoActual(Muestra muestra) {
 		//recorrer lista hasta encontrar 3 opiniones que coincidan primero. puede ser con un findFirst u otro metodo.
@@ -79,10 +84,4 @@ public class Muestra {
 			this.setResultadoActual(result.get().getTipoOpinion());
 		}
 	}
-		//this.setResultadoActual(resultadoActual);
-	//}
-	//debo crear al parcipante Experto
-//	public boolean verificada(Tipo) {
-	//	return muestra.
-//	}
-}
+
