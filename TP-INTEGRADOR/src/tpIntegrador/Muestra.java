@@ -84,4 +84,4 @@ public class Muestra {
 			this.setResultadoActual(result.get().getTipoOpinion());
 		}
 	}
-}
+
