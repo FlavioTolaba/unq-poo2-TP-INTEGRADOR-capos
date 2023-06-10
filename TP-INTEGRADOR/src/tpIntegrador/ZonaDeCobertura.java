@@ -1,12 +1,20 @@
 package tpIntegrador;
 
+
+
+public class ZonaDeCobertura {
+
+}
+
+
+
 import java.util.ArrayList;
 
 public class ZonaDeCobertura {
 	private Ubicacion epicentro;
 	private int radio;
 	private String nombre;
-<<<<<<< HEAD
+
 	private ArrayList<Muestra> muestrasReportadas; 
 	
 /*	public ArrayList<ZonaDeCobertura> zonasSolapadas(){
@@ -14,7 +22,7 @@ public class ZonaDeCobertura {
 		return 
 	}
 */
-=======
+
 	private ArrayList<Muestra> muestrasReportadas;
 
 	public ArrayList<ZonaDeCobertura> zonasSolapadas(){
@@ -22,7 +30,8 @@ public class ZonaDeCobertura {
 		return 
 	}
 
->>>>>>> main
+
 }
+
 
 

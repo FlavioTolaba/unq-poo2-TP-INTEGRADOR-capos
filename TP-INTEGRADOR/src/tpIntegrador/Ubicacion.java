@@ -6,6 +6,11 @@ import java.util.List;
 =======
 >>>>>>> main
 public class Ubicacion {
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> main
 	private double longitudX;
 	private double latitudY;
 	
@@ -45,5 +50,9 @@ public class Ubicacion {
 
 >>>>>>> main
 
+<<<<<<< HEAD
+>>>>>>> main
+=======
+>>>>>>> main
 
 }
