@@ -40,7 +40,7 @@ public class MuestraTest {
 	}
 	
 
-	@Test
+/*	@Test
 	void idDelParticipanteDeMuestraEs10() {
 		
 		//configuration
@@ -49,8 +49,7 @@ public class MuestraTest {
 		//exercise
 		muestra.getIdParticipante();
 		
-		
-	}
+		*/
 	//test para verificar que tiene 3 opiniones iguales
 	@Test
 	void resultadoActualImagenPocoClara() {

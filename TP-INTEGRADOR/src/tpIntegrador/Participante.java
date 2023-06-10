@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package tpIntegrador;
 
 import java.time.LocalDate;
@@ -76,23 +76,5 @@ public class Participante {
     	
     }
     
-
-
 }
-=======
-package tpIntegrador;
 
-public class Participante {
-
-<<<<<<< HEAD
-=======
-
-	private int id;
-	
-	public int getId() {
-		// TODO Auto-generated method stub
-		return this.id;
-	}
->>>>>>> main
-}
->>>>>>> main

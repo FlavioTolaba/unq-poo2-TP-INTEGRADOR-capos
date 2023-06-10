@@ -1,16 +1,9 @@
 package tpIntegrador;
 
-<<<<<<< HEAD
 import java.util.List;
 
-=======
->>>>>>> main
 public class Ubicacion {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> main
+
 	private double longitudX;
 	private double latitudY;
 	
@@ -30,7 +23,6 @@ public class Ubicacion {
 		return this.latitudY;
 	}
 	
-<<<<<<< HEAD
 	public double distanciaEntreDosUbicaciones(Ubicacion ubicacion1,Ubicacion ubicacion2) {
 		double x1=ubicacion1.getLongitudX();
 		double x2=ubicacion2.getLongitudX();
@@ -41,18 +33,11 @@ public class Ubicacion {
 		return resultadoFinal;
 	}
 	
-	public List<Ubicacion> ubicacionesEnRango(double distancia,List<Ubicacion> listaUbicaciones,Ubicacion ubicacion2) {
-		 return listaUbicaciones.stream()
-				 .filter(
+/*	public List<Ubicacion> ubicacionesEnRango(double distancia,List<Ubicacion> listaUbicaciones,Ubicacion ubicacion2) {
+		 return listaUbicaciones.stream().
+				 filter(
 						 ubicacion -> this.distanciaEntreDosUbicaciones(ubicacion, ubicacion2) <=  distancia).toList();
 	}
-=======
-
->>>>>>> main
-
-<<<<<<< HEAD
->>>>>>> main
-=======
->>>>>>> main
+*/
 
 }

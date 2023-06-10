@@ -1,7 +1,6 @@
 package tpIntegrador;
 
 import java.util.List;
-<<<<<<< HEAD
 import java.util.ArrayList;
 
 public class LosMasVinchucas implements UObservable {
@@ -9,6 +8,7 @@ public class LosMasVinchucas implements UObservable {
 	private List<Muestra> muestras;
 	private List<Organizacion> organizaciones;
 	private List<Observador> observadores = new ArrayList<Observador>();
+	
 	@Override
 	public void añadirObservador(Observador observador) {
 		// TODO Auto-generated method stub
@@ -58,23 +58,4 @@ public class LosMasVinchucas implements UObservable {
 		return this.observadores;
 	}
 	
-=======
-
-public class LosMasVinchucas implements Obeserver{
-	private List<Participante> participantes;
-	private List<Muestra> muestras;
-	private List<Organizacion> organizaciones;
-	
-public void participanteCargaMuestra(Participante participante){
-		//filtrar participante de la lista de participantes de la app
-		Muestra muestra=new Muestra();
-		participante.cargarMuestra();
-		this.participantes.add(participante);
-		}
-
-		public void crearParticipante(String id,Rango rango,boolean estudios){
-		Participante participante=new Participante(id,rango,estudios);
-		this.participantes.add(participante);
-		}
->>>>>>> main
 }

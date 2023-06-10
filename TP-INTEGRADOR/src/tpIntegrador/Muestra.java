@@ -1,16 +1,11 @@
 package tpIntegrador;
 
 
-public class Muestra {
-
-}
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class Muestra {
 
@@ -87,8 +82,7 @@ public class Muestra {
 		
 		if (result.isPresent()) {
 			this.setResultadoActual(result.get().getTipoOpinion());
-		}
-	}
+		}}}
 
 		//this.setResultadoActual(resultadoActual);
 	//}
@@ -96,7 +90,5 @@ public class Muestra {
 //	public boolean verificada(Tipo) {
 	//	return muestra.
 //	}
-}
 
-}
 

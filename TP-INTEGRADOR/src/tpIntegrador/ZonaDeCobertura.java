@@ -1,13 +1,6 @@
 package tpIntegrador;
 
 
-
-public class ZonaDeCobertura {
-
-}
-
-
-
 import java.util.ArrayList;
 
 public class ZonaDeCobertura {
@@ -22,14 +15,14 @@ public class ZonaDeCobertura {
 		return 
 	}
 */
-
+/*
 	private ArrayList<Muestra> muestrasReportadas;
 
 	public ArrayList<ZonaDeCobertura> zonasSolapadas(){
 		
 		return 
 	}
-
+*/
 
 }
 
