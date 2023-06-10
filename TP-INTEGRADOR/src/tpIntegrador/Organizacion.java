@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
+<<<<<<< HEAD
+public class Organizacion implements FuncionalidadExterna,Observador{
+=======
 public class Organizacion implements FuncionalidadExterna, Observer{
+>>>>>>> main
 
 	private TipoOrganizacion tipoOrganizacion;
 	private int cantidadEmpleados;
@@ -31,8 +35,24 @@ public class Organizacion implements FuncionalidadExterna, Observer{
 	}
 
 	@Override
+<<<<<<< HEAD
+	public void recibirNotificacion() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void nuevoEvento() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+=======
 	public void update(Observable o, Object arg) {
 		
 	}
 
+>>>>>>> main
 }
