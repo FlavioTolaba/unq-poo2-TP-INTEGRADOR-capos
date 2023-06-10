@@ -13,7 +13,8 @@ class OrganizacionTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		
+
+
 	zonaDeCobertura1 = mock(ZonaDeCobertura.class);
 	ubicacion1 = mock(Ubicacion.class);
 	organizacion=new Organizacion(TipoOrganizacion.SALUD,40,ubicacion1);

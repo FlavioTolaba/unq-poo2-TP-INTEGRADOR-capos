@@ -1,31 +1,11 @@
 package tpIntegrador;
 
-<<<<<<< HEAD
+
 import java.util.List;
 
-=======
->>>>>>> main
-public class Ubicacion {
-	private double longitudX;
-	private double latitudY;
+
+public class UbicacionManager{
 	
-	
-	public Ubicacion(double longitudX, double latitudY) {
-		this.longitudX = longitudX;
-		this.latitudY = latitudY;
-	}
-
-
-	public double getLongitudX() {
-		return this.longitudX;
-	}
-
-
-	public double getLatitudY() {
-		return this.latitudY;
-	}
-	
-<<<<<<< HEAD
 	public double distanciaEntreDosUbicaciones(Ubicacion ubicacion1,Ubicacion ubicacion2) {
 		double x1=ubicacion1.getLongitudX();
 		double x2=ubicacion2.getLongitudX();
@@ -35,15 +15,21 @@ public class Ubicacion {
 		double resultadoFinal=Math.sqrt(resultado);
 		return resultadoFinal;
 	}
-	
+	//falta test
+/*	public ArrayList<Ubicacion> ubicacionesEnRango(double distancia,ArrayList<Ubicacion> listaUbicaciones,Ubicacion ubicacion2) {
+		 return ConvertidorStreamArray.getArrayListFromStream(
+				 listaUbicaciones.stream()
+				 .filter(
+						 ubicacion -> this.distanciaEntreDosUbicaciones(ubicacion, ubicacion2) <=  distancia));
+	}
+*/
 	public List<Ubicacion> ubicacionesEnRango(double distancia,List<Ubicacion> listaUbicaciones,Ubicacion ubicacion2) {
 		 return listaUbicaciones.stream()
 				 .filter(
 						 ubicacion -> this.distanciaEntreDosUbicaciones(ubicacion, ubicacion2) <=  distancia).toList();
 	}
-=======
-
->>>>>>> main
-
-
+	
+	public double radioUbicacion(Ubicacion ubicacion) {
+		
+	}
 }
