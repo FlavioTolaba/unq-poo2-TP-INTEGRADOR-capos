@@ -21,7 +21,11 @@ public class Participante {
 
     public Participante(String nombre,long id) {
         
+<<<<<<< HEAD
     	this.id = id;
+=======
+    	this.id =id;
+>>>>>>> main
     	this.nombre = nombre;
         this.fechaUltimoCambioNivel = LocalDate.now();
         this.muestrasEnviadas = new ArrayList<Muestra>();
