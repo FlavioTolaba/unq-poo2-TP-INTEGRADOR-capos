@@ -16,8 +16,7 @@ public class LosMasVinchucas implements UObservable {
 	}
 	@Override
 	public void eliminarObservador(Observador observador) {
-		// TODO Auto-generated method stub
-		
+		this.observadores.remove(observador);		
 	}
 	@Override
 	public void notificarObservadores(Muestra muestra) {
