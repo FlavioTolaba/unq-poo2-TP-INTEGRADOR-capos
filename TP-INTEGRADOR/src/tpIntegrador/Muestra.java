@@ -9,25 +9,26 @@ import java.util.Optional;
 
 public class Muestra {
 
-	private int idParticipante;
+	private Long idParticipante;
 	private String foto;
 	private LocalDate date;
 	private List<Opinion> opiniones= new ArrayList<>();
-	private TipoOpinion resultadoActual;
+	private Optional<Opinion> tipoVinchuca;
 	
-	public Muestra(int idParticipante, String foto, LocalDate date, List<Opinion> opiniones) {
+	public Muestra(long idParticipante, String foto, LocalDate date, List<Opinion> opiniones, TipoOpinion tipoVinchuca) {
 		super();
 		this.idParticipante = idParticipante;
 		this.foto = foto;
 		this.date = date;
 		this.opiniones = opiniones;
+		this.tipoVinchuca = Optional.empty();
 	}
 
-	public int getIdParticipante() {
+	public long getIdParticipante() {
 		return idParticipante;
 	}
 
-	public void setIdParticipante(int idParticipante) {
+	public void setIdParticipante(long idParticipante) {
 		this.idParticipante = idParticipante;
 	}
 
@@ -56,12 +57,12 @@ public class Muestra {
 	}
 	
 
-	public TipoOpinion getResultadoActual() {
-		return resultadoActual;
+	public TipoOpinion getTipoVinchuca() {
+		return tipoVinchuca;
 	}
 
-	public void setResultadoActual(TipoOpinion resultadoActual) {
-		this.resultadoActual = resultadoActual;
+	public void setTipoVinchuca(Optional<Opinion> result) {
+		this.tipoVinchuca = result;
 	}
 
 	public void agregarOpinion(Opinion opinion) {
@@ -81,8 +82,9 @@ public class Muestra {
 				.filter(e -> Collections.frequency(opiniones, e.getTipoOpinion()) >= 3).findFirst();
 		
 		if (result.isPresent()) {
-			this.setResultadoActual(result.get().getTipoOpinion());
-		}}}
+			this.setTipoVinchuca(result);;
+		}}
+	}
 
 		//this.setResultadoActual(resultadoActual);
 	//}
