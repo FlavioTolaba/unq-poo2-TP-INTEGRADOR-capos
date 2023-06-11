@@ -64,9 +64,6 @@ public class LosMasVinchucas implements UObservable {
 	public void setMuestras(List<Muestra> muestras) {
 		this.muestras = muestras;
 	}
-	// busquedas que realizar la web sobre las muestras.
-	public List<Muestra> realizarBusqueda(CriterioFiltro criterioFiltro){
-		return criterioFiltro.realizarBusqueda(this.getMuestras());
-	}
+
 		
 }
