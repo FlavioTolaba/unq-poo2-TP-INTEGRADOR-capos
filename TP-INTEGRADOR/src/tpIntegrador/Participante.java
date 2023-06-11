@@ -19,9 +19,9 @@ public class Participante {
     
    
 
-    public Participante(String nombre) {
+    public Participante(String nombre,long id) {
         
-    	this.id = 1000;
+    	this.id = id;
     	this.nombre = nombre;
         this.fechaUltimoCambioNivel = LocalDate.now();
         this.muestrasEnviadas = new ArrayList<Muestra>();

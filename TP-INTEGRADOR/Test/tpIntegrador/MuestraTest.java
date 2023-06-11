@@ -19,14 +19,16 @@ public class MuestraTest {
 	Opinion opinionMock0;
 	Opinion opinionMock1;
 	Opinion opinionMock2;
-	
+	Participante participante0;
+	Opinion opinion;
 
 	@BeforeEach
 	void setUp() throws Exception {
 		
 		//participanteMock1 = mock(Participante.class);
 		muestra = new Muestra(10L, "foto", null, new ArrayList<>(), TipoOpinion.CHINCE_FOLIADA);
-		
+		participante0 = new Participante("Carlos", 10L);
+		opinion = new Opinion(TipoOpinion.CHINCE_FOLIADA);
 		
 	}
 		
@@ -44,20 +46,13 @@ public class MuestraTest {
 	@Test
 	void idDelParticipanteDeMuestraEs10Test() {
 		
-		//configuration
-		when(participanteMock1.getId()).thenReturn(10L);
-		
-		//exercise
-		muestra.getIdParticipante();
-		
 		//verify
-		assertEquals(muestra.getIdParticipante(), participanteMock1.getId());
+		assertEquals(muestra.getIdParticipante(), participante0.getId());
 	}
 	@Test
 	void agregarOpinionTest() {
-		Opinion opinion = mock(Opinion.class);
 		muestra.agregarOpinion(opinion);
-		//verify(muestra.getTipoVinchuca()).agregarOpinionA(opinion, muestra);
+		assertEquals(muestra.getOpiniones().size(),1);
 	}
 	
 }
