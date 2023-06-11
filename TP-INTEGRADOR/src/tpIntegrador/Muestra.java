@@ -13,7 +13,7 @@ public class Muestra {
 	private String foto;
 	private LocalDate date;
 	private List<Opinion> opiniones= new ArrayList<>();
-	private TipoOpinion tipoVinchuca;
+	private Optional<Opinion> tipoVinchuca;
 	
 	public Muestra(long idParticipante, String foto, LocalDate date, List<Opinion> opiniones, TipoOpinion tipoVinchuca) {
 		super();
@@ -21,7 +21,7 @@ public class Muestra {
 		this.foto = foto;
 		this.date = date;
 		this.opiniones = opiniones;
-		this.tipoVinchuca = tipoVinchuca;
+		this.tipoVinchuca = Optional.empty();
 	}
 
 	public long getIdParticipante() {
@@ -61,8 +61,8 @@ public class Muestra {
 		return tipoVinchuca;
 	}
 
-	public void setTipoVinchuca(TipoOpinion tipoVinchuca) {
-		this.tipoVinchuca = tipoVinchuca;
+	public void setTipoVinchuca(Optional<Opinion> result) {
+		this.tipoVinchuca = result;
 	}
 
 	public void agregarOpinion(Opinion opinion) {
@@ -74,7 +74,7 @@ public class Muestra {
 	}
 	
 	
-	/*//metodos
+	//metodos
 	public void resultadoActual(Muestra muestra) {
 		//recorrer lista hasta encontrar 3 opiniones que coincidan primero. puede ser con un findFirst u otro metodo.
 		//this.getOpiniones().stream().forEach(opinion -> opinion.getTipoOpinion());
@@ -82,14 +82,15 @@ public class Muestra {
 				.filter(e -> Collections.frequency(opiniones, e.getTipoOpinion()) >= 3).findFirst();
 		
 		if (result.isPresent()) {
-			this.resultadoActual(result.get().getTipoOpinion());
-		}}}
+			this.setTipoVinchuca(result);;
+		}}
+	}
 
 		//this.setResultadoActual(resultadoActual);
 	//}
 	//debo crear al parcipante Experto
 //	public boolean verificada(Tipo) {
 	//	return muestra.
-//	*/}
+//	}
 
 
