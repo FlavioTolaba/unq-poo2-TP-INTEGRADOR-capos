@@ -11,7 +11,7 @@ public class LosMasVinchucas implements UObservable {
 	
 	@Override
 	public void añadirObservador(Observador observador) {
-		// TODO Auto-generated method stub
+		this.observadores.add(observador);
 		
 	}
 	@Override
@@ -20,42 +20,37 @@ public class LosMasVinchucas implements UObservable {
 		
 	}
 	@Override
-	public void notificarObservadores() {
-		// TODO Auto-generated method stub
-		
+	public void notificarObservadores(Muestra muestra) {
+	observadores.forEach(observador -> observador.recibirNotificacion(muestra));
 	}
 
-/*	public void participanteCargaMuestra(Participante participante){
+	public LosMasVinchucas() {
+		this.participantes = new ArrayList<Participante>();
+		this.muestras = new ArrayList<Muestra>();
+		this.organizaciones = new ArrayList<Organizacion>();
+		this.observadores = new ArrayList<Observador>();
+	}
+	public void participanteCargaMuestra(Participante participante){
 		//filtrar participante de la lista de participantes de la app
 		Muestra muestra=new Muestra();
-		participante.enviarMuestra();
-		this.notificarObservadores();
+		participante.enviarMuestra(muestra);
+		this.notificarObservadores(muestra);
 		
 		}
 
-	public void crearParticipante(String id, Rango rango, boolean estudios) {
-		Participante participante = new Participante(id, rango, estudios);
+	public void registrarParticipante(Participante participante) {
 		this.participantes.add(participante);
 	}
 
-	@Override
-	public void añadirObservador(Observador observador) {
-		this.observadores.add(observador);
-	}
 
-	@Override
-	public void eliminarObservador(Observador observador) {
-		this.observadores.remove(observador);
-
-	}
-
-	@Override
-		public void notificarObservadores() {
-			this.observadores.forEach(observador -> observador.recibirNotificacion());		
-		}
-*/
 	public List<Observador> getObservadores() {
 		return this.observadores;
+	}
+	public List<Participante> getParticpantes() {
+		return this.participantes;
+	}
+	public List<Muestra> getMuestras() {
+		return this.muestras;
 	}
 	
 }
