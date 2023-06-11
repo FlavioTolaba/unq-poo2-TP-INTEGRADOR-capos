@@ -17,8 +17,8 @@ class ParticipanteTest {
 		muestra1 = mock(Muestra.class);
 		muestra2 = mock(Muestra.class);
 		muestra3 = mock(Muestra.class);
-		participante1 = new Participante("Leo");
-		participante2=	new Participante("Lucas");
+		participante1 = new Participante("Leo",1);
+		participante2=	new Participante("Lucas",1);
 	}
 
 @Test
