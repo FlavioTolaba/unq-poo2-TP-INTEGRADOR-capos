@@ -12,16 +12,19 @@ public class Muestra {
 	private Long idParticipante;
 	private String foto;
 	private LocalDate date;
-	private List<Opinion> opiniones= new ArrayList<>();
+	private List<Opinion> opiniones;
+	private Ubicacion ubicacion;
 	private Optional<Opinion> tipoVinchuca;
 	
-	public Muestra(long idParticipante, String foto, LocalDate date, List<Opinion> opiniones, TipoOpinion tipoVinchuca) {
-		super();
+	public Muestra(long idParticipante, String foto,Ubicacion ubicacion,LocalDate date, Opinion opinion) {
 		this.idParticipante = idParticipante;
 		this.foto = foto;
+		this.ubicacion = ubicacion;
 		this.date = date;
-		this.opiniones = opiniones;
-		this.tipoVinchuca = Optional.empty();
+		this.opiniones = new ArrayList<Opinion>();
+		
+		this.opiniones.add(opinion);
+		
 	}
 
 	public long getIdParticipante() {
@@ -57,7 +60,7 @@ public class Muestra {
 	}
 	
 
-	public TipoOpinion getTipoVinchuca() {
+	public Optional<Opinion> getTipoVinchuca() {
 		return tipoVinchuca;
 	}
 

@@ -1,6 +1,7 @@
 package tpIntegrador;
 
 import java.util.List;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class LosMasVinchucas implements UObservable {
@@ -29,9 +30,10 @@ public class LosMasVinchucas implements UObservable {
 		this.organizaciones = new ArrayList<Organizacion>();
 		this.observadores = new ArrayList<Observador>();
 	}
-	public void participanteCargaMuestra(Participante participante){
-		//filtrar participante de la lista de participantes de la app
-		Muestra muestra=new Muestra();
+	public void participanteCargaMuestra(String foto,Participante participante,Ubicacion ubicacion,TipoOpinion opinionNueva){
+		Opinion opinion=new Opinion(opinionNueva,participante);
+		Muestra muestra=new Muestra(participante.getId(),foto,ubicacion,LocalDate.now(),opinion);
+		this.muestras.add(muestra);
 		participante.enviarMuestra(muestra);
 		this.notificarObservadores(muestra);
 		

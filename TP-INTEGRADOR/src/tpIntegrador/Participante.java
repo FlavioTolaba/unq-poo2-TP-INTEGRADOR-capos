@@ -20,12 +20,7 @@ public class Participante {
    
 
     public Participante(String nombre,long id) {
-        
-<<<<<<< HEAD
     	this.id = id;
-=======
-    	this.id =id;
->>>>>>> main
     	this.nombre = nombre;
         this.fechaUltimoCambioNivel = LocalDate.now();
         this.muestrasEnviadas = new ArrayList<Muestra>();
@@ -43,7 +38,7 @@ public class Participante {
     public String getNombre() {
     	return this.nombre;
     }
-    
+
     
     public void enviarMuestra(Muestra muestra) {
         muestrasEnviadas.add(muestra);

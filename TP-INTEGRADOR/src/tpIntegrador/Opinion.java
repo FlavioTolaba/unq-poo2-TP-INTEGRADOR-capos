@@ -6,13 +6,12 @@ public class Opinion {
 	private Participante participante;
 
 	public TipoOpinion getTipoOpinion() {
-		// TODO Auto-generated method stub
 		return this.tipoOpinion;
 	}
 
-	public Opinion(TipoOpinion tipoOpinion) {
-		super();
+	public Opinion(TipoOpinion tipoOpinion,Participante participante) {
 		this.tipoOpinion = tipoOpinion;
+		this.participante = participante;
 	}
 
 	public void setTipoOpinion(TipoOpinion tipoOpinion) {
