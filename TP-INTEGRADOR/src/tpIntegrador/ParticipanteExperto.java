@@ -2,8 +2,8 @@ package tpIntegrador;
 
 public class ParticipanteExperto extends Participante {
 	
-	public ParticipanteExperto(String nombre) {
-        super( nombre);
+	public ParticipanteExperto(String nombre, long i) {
+        super(nombre, i);
     }
 	
 	@Override
