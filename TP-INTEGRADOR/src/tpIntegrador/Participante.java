@@ -20,14 +20,18 @@ public class Participante {
    
 
     public Participante(String nombre,long id) {
-    	this.id = id;
-    	this.nombre = nombre;
+    	this.setId(id);
+    	this.setNombre(nombre);
         this.fechaUltimoCambioNivel = LocalDate.now();
         this.muestrasEnviadas = new ArrayList<Muestra>();
         this.opinionesRealizadas = new ArrayList<Opinion>();
     }	
     
-    public long getId() {
+    private void setNombre(String nombre2) {
+		this.nombre = nombre;
+	}
+
+	public long getId() {
 		return id;
 	}
 

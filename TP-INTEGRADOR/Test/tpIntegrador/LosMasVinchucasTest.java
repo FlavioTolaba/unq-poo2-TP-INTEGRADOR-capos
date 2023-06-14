@@ -48,6 +48,6 @@ class LosMasVinchucasTest {
 		assertEquals(sistema.getMuestras().size(),1);
 		assertEquals(participante1.getCantidadDeMuestrasEnviadas(),1);
 	}
-	
+
 	
 }

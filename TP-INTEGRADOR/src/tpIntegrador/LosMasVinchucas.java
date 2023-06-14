@@ -30,9 +30,10 @@ public class LosMasVinchucas implements UObservable {
 		this.organizaciones = new ArrayList<Organizacion>();
 		this.observadores = new ArrayList<Observador>();
 	}
+	
 	public void participanteCargaMuestra(String foto,Participante participante,Ubicacion ubicacion,TipoOpinion opinionNueva){
 		Opinion opinion=new Opinion(opinionNueva,participante);
-		Muestra muestra=new Muestra(participante.getId(),foto,ubicacion,LocalDate.now(),opinion);
+		Muestra muestra=new Muestra(participante.getId(),foto,ubicacion,opinion);
 		this.muestras.add(muestra);
 		participante.enviarMuestra(muestra);
 		this.notificarObservadores(muestra);
@@ -49,9 +50,6 @@ public class LosMasVinchucas implements UObservable {
 	}
 	public List<Participante> getParticpantes() {
 		return this.participantes;
-	}
-	public List<Muestra> getMuestras() {
-		return this.muestras;
 	}
 	
 	public List<Muestra> getMuestras() {

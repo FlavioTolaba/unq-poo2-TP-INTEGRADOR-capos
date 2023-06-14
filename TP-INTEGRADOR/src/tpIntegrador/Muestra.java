@@ -16,11 +16,11 @@ public class Muestra {
 	private Ubicacion ubicacion;
 	private Optional<Opinion> tipoVinchuca;
 	
-	public Muestra(long idParticipante, String foto,Ubicacion ubicacion,LocalDate date, Opinion opinion) {
+	public Muestra(long idParticipante, String foto,Ubicacion ubicacion, Opinion opinion) {
 		this.idParticipante = idParticipante;
 		this.foto = foto;
 		this.ubicacion = ubicacion;
-		this.date = date;
+		this.date = LocalDate.now();
 		this.opiniones = new ArrayList<Opinion>();
 		
 		this.opiniones.add(opinion);

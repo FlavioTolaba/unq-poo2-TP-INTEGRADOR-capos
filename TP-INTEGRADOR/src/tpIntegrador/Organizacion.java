@@ -30,13 +30,12 @@ public class Organizacion implements FuncionalidadExterna,Observador{
 	}
 
 	@Override
-	public void recibirNotificacion() {
-		// TODO Auto-generated method stub
-		
+	public void nuevoEvento() {
+		// TODO Auto-generated method stub	
 	}
 
 	@Override
-	public void nuevoEvento() {
+	public void recibirNotificacion(Muestra muestra) {
 		// TODO Auto-generated method stub
 		
 	}

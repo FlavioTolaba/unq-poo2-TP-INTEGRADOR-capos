@@ -20,21 +20,24 @@ public class MuestraTest {
 	Opinion opinionMock1;
 	Opinion opinionMock2;
 	Participante participante0;
-	Opinion opinion;
-
+	Opinion opinionMock;
+	Ubicacion ubicacionOrzanizacion1;
+	
 	@BeforeEach
 	void setUp() throws Exception {
 		
 		//participanteMock1 = mock(Participante.class);
-		muestra = new Muestra(10L, "foto", null, new ArrayList<>(), TipoOpinion.CHINCE_FOLIADA);
 		participante0 = new Participante("Carlos", 10L);
-		opinion = new Opinion(TipoOpinion.CHINCE_FOLIADA);
+		ubicacionOrzanizacion1 = new Ubicacion(3, 7);
+		opinionMock=mock(Opinion.class);
+		muestra = new Muestra(10L, "foto",ubicacionOrzanizacion1,opinionMock);
 		
 	}
 		
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testConstructorMuestra() {
+		
+		
 	}
 	
 	@Test
