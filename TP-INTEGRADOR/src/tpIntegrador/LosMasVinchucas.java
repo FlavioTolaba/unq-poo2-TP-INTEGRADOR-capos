@@ -32,8 +32,8 @@ public class LosMasVinchucas implements UObservable {
 	}
 	
 	public void participanteCargaMuestra(String foto,Participante participante,Ubicacion ubicacion,TipoOpinion opinionNueva){
-		Opinion opinion=new Opinion(opinionNueva,participante);
-		Muestra muestra=new Muestra(participante.getId(),foto,ubicacion,opinion);
+		
+		Muestra muestra=new Muestra(participante.getId(),foto,ubicacion);
 		this.muestras.add(muestra);
 		participante.enviarMuestra(muestra);
 		this.notificarObservadores(muestra);
@@ -58,6 +58,11 @@ public class LosMasVinchucas implements UObservable {
 	}
 	public void setMuestras(List<Muestra> muestras) {
 		this.muestras = muestras;
+	}
+	public void participanteCargaNuevaOpinion(Participante participante2, Muestra muestra2, TipoOpinion tipo) {
+		
+		participante2.enviarOpinion(tipo, muestra2);
+		
 	}
 
 		

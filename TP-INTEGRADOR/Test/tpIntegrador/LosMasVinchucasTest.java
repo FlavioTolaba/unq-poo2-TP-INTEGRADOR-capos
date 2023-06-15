@@ -1,5 +1,6 @@
 package tpIntegrador;
 
+import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
@@ -24,6 +25,7 @@ class LosMasVinchucasTest {
 		ubicacionOrzanizacion1 = new Ubicacion(3, 7);
 		organizacion1=new Organizacion(TipoOrganizacion.SALUD,22, this.ubicacionOrzanizacion1);
 		participante2=mock(Participante.class);	
+		muestra2 = new Muestra(100L, "foto", ubicacionOrzanizacion1);
 	}
 
 	@Test
@@ -49,5 +51,12 @@ class LosMasVinchucasTest {
 		assertEquals(participante1.getCantidadDeMuestrasEnviadas(),1);
 	}
 
+	@Test
+	void testParticipanteEnviaNuevaOpinionAMuestra2() {
+		
+		sistema.participanteCargaNuevaOpinion(participante2, muestra2, TipoOpinion.PHTIA_CHINCE);
+		assertTrue(participante2.getOpinionesEnviadas().contains(muestra2.getOpiniones().get(0))); 
+		
+	}
 	
 }
