@@ -27,7 +27,7 @@ public class Participante {
         this.opinionesRealizadas = new ArrayList<Opinion>();
     }	
     
-    private void setNombre(String nombre2) {
+    private void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 

@@ -17,8 +17,8 @@ class ParticipanteTest {
 		muestra1 = mock(Muestra.class);
 		muestra2 = mock(Muestra.class);
 		muestra3 = mock(Muestra.class);
-		participante1 = new Participante("Leo");
-		participante2=	new Participante("Lucas");
+		participante1 = new Participante("Leo", 123L);
+		participante2=	new Participante("Lucas", 912L);
 	}
 
 @Test
@@ -90,6 +90,9 @@ void testNivelParticipante() {
 //Nivel Experto
 
 void testNivelParticipanteExperto() {
+	
+	
+	assertEquals(ClaseParticipante.BASICO, participante2.getNivelUsuario());
 	
 	participante2.enviarMuestra(muestra1);
 	participante2.enviarOpinion(opinion1);
