@@ -3,27 +3,27 @@ package tpIntegrador;
 public class Opinion {
 	
 	private TipoOpinion tipoOpinion;
-	private Participante participante;
+	private long idParticipante;
 
 	public TipoOpinion getTipoOpinion() {
 		return this.tipoOpinion;
 	}
 
-	public Opinion(TipoOpinion tipoOpinion,Participante participante) {
+	public Opinion(TipoOpinion tipoOpinion,long id) {
 		this.tipoOpinion = tipoOpinion;
-		this.participante = participante;
+		this.idParticipante = id;
 	}
 
 	public void setTipoOpinion(TipoOpinion tipoOpinion) {
 		this.tipoOpinion = tipoOpinion;
 	}
 
-	public Participante getParticipante() {
+/*	public Participante getParticipante() {
 		return participante;
 	}
-
-	public void setParticipante(Participante participante) {
-		this.participante = participante;
+*/
+	public void setIdParticipante(long id) {
+		this.idParticipante = id;
 	}
 
 }

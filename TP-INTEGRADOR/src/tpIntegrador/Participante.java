@@ -48,8 +48,11 @@ public class Participante {
         muestrasEnviadas.add(muestra);
     }
     
-    public void enviarOpinion(Opinion opinion) {
-        opinionesRealizadas.add(opinion);
+    public Opinion enviarOpinion(TipoOpinion opinion1, Muestra muestra) {
+        Opinion opinion=new Opinion(opinion1,this.getId());
+    	opinionesRealizadas.add(opinion);
+    	muestra.recibirOpinion(opinion);
+    	return opinion;
     }
     
     public ClaseParticipante getNivelUsuario() {

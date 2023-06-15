@@ -39,7 +39,8 @@ public class LosMasVinchucas implements UObservable {
 		this.notificarObservadores(muestra);
 		
 		}
-
+//participante enviaNuevaOpinion
+	
 	public void registrarParticipante(Participante participante) {
 		this.participantes.add(participante);
 	}

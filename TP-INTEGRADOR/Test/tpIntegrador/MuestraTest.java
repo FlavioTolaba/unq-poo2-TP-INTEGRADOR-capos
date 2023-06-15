@@ -29,7 +29,7 @@ public class MuestraTest {
 		//participanteMock1 = mock(Participante.class);
 		participante0 = new Participante("Carlos", 10L);
 		ubicacionOrzanizacion1 = new Ubicacion(3, 7);
-		opinionMock=mock(Opinion.class);
+		opinionMock = mock(Opinion.class);
 		muestra = new Muestra(10L, "foto",ubicacionOrzanizacion1,opinionMock);
 		
 	}
@@ -54,7 +54,7 @@ public class MuestraTest {
 	}
 	@Test
 	void agregarOpinionTest() {
-		muestra.agregarOpinion(opinion);
+		muestra.agregarOpinion(opinionMock);
 		assertEquals(muestra.getOpiniones().size(),1);
 	}
 	

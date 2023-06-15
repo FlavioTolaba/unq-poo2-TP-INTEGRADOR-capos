@@ -87,6 +87,11 @@ public class Muestra {
 		if (result.isPresent()) {
 			this.setTipoVinchuca(result);;
 		}}
+
+	public void recibirOpinion(Opinion opinion) {
+		// TODO Auto-generated method stub
+		
+	}
 	}
 
 		//this.setResultadoActual(resultadoActual);
