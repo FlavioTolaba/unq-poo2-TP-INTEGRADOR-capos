@@ -16,14 +16,14 @@ public class Muestra {
 	private Ubicacion ubicacion;
 	private Optional<Opinion> tipoVinchuca;
 	
-	public Muestra(long idParticipante, String foto,Ubicacion ubicacion, Opinion opinion) {
+	public Muestra(long idParticipante, String foto,Ubicacion ubicacion) {
 		this.idParticipante = idParticipante;
 		this.foto = foto;
 		this.ubicacion = ubicacion;
 		this.date = LocalDate.now();
 		this.opiniones = new ArrayList<Opinion>();
 		
-		this.opiniones.add(opinion);
+		
 		
 	}
 
@@ -88,11 +88,23 @@ public class Muestra {
 			this.setTipoVinchuca(result);;
 		}}
 
+	
+
+	
 	public void recibirOpinion(Opinion opinion) {
-		// TODO Auto-generated method stub
+		
+		if(! this.getOpiniones().contains(opinion)) {
+		
+			this.agregarOpinion(opinion);
+		
+		}
+	}
+
+		
+		
 		
 	}
-	}
+	
 
 		//this.setResultadoActual(resultadoActual);
 	//}
