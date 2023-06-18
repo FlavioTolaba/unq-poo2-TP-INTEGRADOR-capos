@@ -22,8 +22,7 @@ public class Muestra {
 		this.ubicacion = ubicacion;
 		this.date = LocalDate.now();
 		this.opiniones = new ArrayList<Opinion>();
-		
-		this.opiniones.add(opinion);
+
 		
 	}
 

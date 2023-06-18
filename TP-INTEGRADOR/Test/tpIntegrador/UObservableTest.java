@@ -9,13 +9,13 @@ import org.junit.jupiter.api.Test;
 class UObservableTest {
 	private Organizacion organizacion1;
 	private Organizacion organizacion2;
-	private LosMasVinchucas sistema;
+	private VinchucaSistema sistema;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		organizacion1 = mock(Organizacion.class);
 		organizacion2 = mock(Organizacion.class);
-		sistema = new LosMasVinchucas();
+		sistema = new VinchucaSistema();
 	}
 
 	@Test

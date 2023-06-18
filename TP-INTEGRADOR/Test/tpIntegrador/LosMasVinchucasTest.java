@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class LosMasVinchucasTest {
 	
-	private LosMasVinchucas sistema;
+	private VinchucaSistema sistema;
 	private Participante participante1;
 	private Ubicacion ubicacionOrzanizacion1;
 	private Organizacion organizacion1;
@@ -19,7 +19,7 @@ class LosMasVinchucasTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		sistema = new LosMasVinchucas();
+		sistema = new VinchucaSistema();
 		participante1=new Participante("Ramon",3538L);
 		ubicacionOrzanizacion1 = new Ubicacion(3, 7);
 		organizacion1=new Organizacion(TipoOrganizacion.SALUD,22, this.ubicacionOrzanizacion1);

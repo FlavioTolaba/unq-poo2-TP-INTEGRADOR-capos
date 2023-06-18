@@ -4,7 +4,7 @@ import java.util.List;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class LosMasVinchucas implements UObservable {
+public class VinchucaSistema implements UObservable {
 	private List<Participante> participantes;
 	private List<Muestra> muestras;
 	private List<Organizacion> organizaciones;
@@ -21,10 +21,10 @@ public class LosMasVinchucas implements UObservable {
 	}
 	@Override
 	public void notificarObservadores(Muestra muestra) {
-	observadores.forEach(observador -> observador.recibirNotificacion(muestra));
-	}
+		observadores.forEach(observador -> observador.recibirNotificacion(muestra));
+	}	
 
-	public LosMasVinchucas() {
+	public VinchucaSistema() {
 		this.participantes = new ArrayList<Participante>();
 		this.muestras = new ArrayList<Muestra>();
 		this.organizaciones = new ArrayList<Organizacion>();
