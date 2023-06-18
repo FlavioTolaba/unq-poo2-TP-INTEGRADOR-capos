@@ -1,10 +1,13 @@
 package tpIntegrador;
 
+import java.time.LocalDate;
+
 public class Opinion {
 	
 	private TipoOpinion tipoOpinion;
 	private long idParticipante;
-
+	private LocalDate fechaEmision;
+	
 	public TipoOpinion getTipoOpinion() {
 		return this.tipoOpinion;
 	}
@@ -12,6 +15,7 @@ public class Opinion {
 	public Opinion(TipoOpinion tipoOpinion,long id) {
 		this.tipoOpinion = tipoOpinion;
 		this.idParticipante = id;
+		this.fechaEmision=LocalDate.now();
 	}
 
 	public void setTipoOpinion(TipoOpinion tipoOpinion) {

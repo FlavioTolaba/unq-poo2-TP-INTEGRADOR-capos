@@ -55,7 +55,7 @@ class LosMasVinchucasTest {
 	void testParticipanteEnviaNuevaOpinionAMuestra2() {
 		
 		sistema.participanteCargaNuevaOpinion(participante2, muestra2, TipoOpinion.PHTIA_CHINCE);
-		assertTrue(participante2.getOpinionesEnviadas().contains(muestra2.getOpiniones().get(0))); 
+		assertTrue(participante2.getOpinionesEnviadas().containsAll(muestra2.getOpiniones())); 
 		
 	}
 	

@@ -72,10 +72,10 @@ public class Muestra {
 		this.getOpiniones().add(opinion);
 	}
 	
-	public boolean tieneUnaOpinionDeParticipante(Participante participante) {
+/*	public boolean tieneUnaOpinionDeParticipante(Participante participante) {
 		return this.getOpiniones().stream().anyMatch(p -> p.getParticipante().equals(participante));
 	}
-	
+	*/
 	
 	//metodos
 	public void resultadoActual(Muestra muestra) {
