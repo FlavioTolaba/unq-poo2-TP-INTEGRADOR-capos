@@ -67,7 +67,7 @@ void testEnviarOpiniones() {
 //Cantidad de Opiniones enviadas
 
 void testCantidadOpiniones	() {
-    participante1.enviarOpinion(opinion1);
+    participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
     
     assertEquals(participante1.getCantidadDeOpinionesEnviadas(), 1);
 }
@@ -80,9 +80,10 @@ void testCantidadOpiniones	() {
 void testNivelParticipante() {
 	
 	participante1.enviarMuestra(muestra1);
-	participante1.enviarOpinion(opinion1);
+	participante1.enviarOpinion(TipoOpinion.PHTIA_CHINCE, muestra1);
+	participante1.actualizarTipo(participante1);
 	
-	assertEquals(ClaseParticipante.BASICO, participante1.getNivelUsuario());
+	assertEquals(participante1.getNivelUsuario(), new ParticipanteBasico());
 }
 
 @Test

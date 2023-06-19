@@ -1,15 +1,14 @@
 package tpIntegrador;
 
-public class ParticipanteExperto extends Participante {
+public class ParticipanteExperto extends TipoParticipante {
 	
-	public ParticipanteExperto(String nombre,long id) {
-        super(nombre,id);
-    }
 
-	 @Override
-
-	    public ClaseParticipante getNivelUsuario() {
-	        return ClaseParticipante.EXPERTO;
-	    }
-
+	@Override
+	public void actualizarTipo(Participante participante) {
+		
+		if(this.esExperto(participante)) {
+			participante.setTipoParticipante(new ParticipanteExperto());
+		}
+		
+	}
 }

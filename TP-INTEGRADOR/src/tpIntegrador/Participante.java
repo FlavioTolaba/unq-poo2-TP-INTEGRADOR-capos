@@ -13,18 +13,18 @@ public class Participante {
 
 	private long id;	
 	private String nombre;
-    private LocalDate fechaUltimoCambioNivel;
 	protected List<Muestra> muestrasEnviadas;
     private List<Opinion> opinionesRealizadas;
+    private TipoParticipante tipoParticipante;
     
    
 
     public Participante(String nombre,long id) {
     	this.setId(id);
     	this.setNombre(nombre);
-        this.fechaUltimoCambioNivel = LocalDate.now();
         this.muestrasEnviadas = new ArrayList<Muestra>();
         this.opinionesRealizadas = new ArrayList<Opinion>();
+        this.setTipoParticipante(new ParticipanteBasico());
     }	
     
     private void setNombre(String nombre) {
@@ -37,6 +37,14 @@ public class Participante {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public void setTipoParticipante(TipoParticipante tipo) {
+		this.tipoParticipante = tipo;
+	}
+	
+	public TipoParticipante getTipoParticipante() {
+		return tipoParticipante;
 	}
     
     public String getNombre() {
@@ -92,5 +100,12 @@ public class Participante {
     	
     }
     
+    public void actualizarTipo(Participante participante) {
+    	
+    	tipoParticipante.actualizarTipo(participante);
+    	
+    }
+    
+   
 }
 
