@@ -57,6 +57,10 @@ public class MuestraTest {
 		muestra.agregarOpinion(opinionMock);
 		assertEquals(muestra.getOpiniones().size(),1);
 	}
+	@Test
+	void testMuestraTieneNuevaOpinionDeParticipanteExperto() {}
+	@Test
+	void testMuestraEsVerificada() {}
 	
 }
 	
