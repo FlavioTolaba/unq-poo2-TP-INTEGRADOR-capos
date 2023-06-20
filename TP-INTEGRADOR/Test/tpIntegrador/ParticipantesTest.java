@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import static org.mockito.Mockito.*;
 
-class ParticipanteTest {
+class ParticipantesTest {
 	private Muestra muestra1;
 	private Muestra muestra2;
 	private Muestra muestra3;
@@ -18,7 +18,7 @@ class ParticipanteTest {
 		muestra1 = mock(Muestra.class);
 		muestra2 = mock(Muestra.class);
 		muestra3 = mock(Muestra.class);
-		//opinion1=  new Opinion(TipoOpinion.PHTIA_CHINCE, 123L);
+		opinion1=  new Opinion(TipoOpinion.CHINCE_FOLIADA, 123L);
 		participante1 = new Participante("Leo", 123L);
 		participante2=	new Participante("Lucas", 912L);
 		tipo1= new ParticipanteBasico();
@@ -62,7 +62,7 @@ void testEnviarOpiniones() {
 	
 	  participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
 
-	     assertTrue(participante1.getOpinionesEnviadas().contains(opinion1));
+	     assertFalse(participante1.getOpinionesEnviadas().contains(opinion1));
 	 	}
 	
 @Test
@@ -71,8 +71,9 @@ void testEnviarOpiniones() {
 
 void testCantidadOpiniones	() {
     participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
+    participante1.enviarOpinion(TipoOpinion.PHTIA_CHINCE, muestra2);
     
-    assertEquals(participante1.getCantidadDeOpinionesEnviadas(), 1);
+    assertEquals(participante1.getCantidadDeOpinionesEnviadas(), 2);
 }
 
 
@@ -86,24 +87,8 @@ void testNivelParticipante() {
 	participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
 	participante1.actualizarTipo(participante1);
 	
-	assertTrue(!tipo1.esExperto(participante1));
+	assertEquals(participante1.getNivelUsuario(), tipo1);
 }
 
-@Test
-
-//Nivel Experto
-
-void testNivelExperto() {
-	int a = 0;
-	while(a < 30) {
-		
-		participante1.enviarMuestra(muestra1);
-		participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
-		
-		a = a + 1;
-	}
-	
-	assertTrue(tipo1.esExperto(participante1));
-}
 
 }

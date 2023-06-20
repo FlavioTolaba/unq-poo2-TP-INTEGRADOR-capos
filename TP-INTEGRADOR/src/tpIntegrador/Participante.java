@@ -24,7 +24,7 @@ public class Participante {
     	this.setNombre(nombre);
         this.muestrasEnviadas = new ArrayList<Muestra>();
         this.opinionesRealizadas = new ArrayList<Opinion>();
-        this.setTipoParticipante(new ParticipanteBasico());
+        this.tipoParticipante = new ParticipanteBasico();
     }	
     
     private void setNombre(String nombre) {
@@ -55,6 +55,7 @@ public class Participante {
     public void enviarMuestra(Muestra muestra) {
         muestrasEnviadas.add(muestra);
     }
+    
     
     public Opinion enviarOpinion(TipoOpinion opinion1, Muestra muestra) {
         Opinion opinion=new Opinion(opinion1,this.getId());
