@@ -5,17 +5,19 @@ import java.time.LocalDate;
 public class Opinion {
 	
 	private TipoOpinion tipoOpinion;
-	private long idParticipante;
+	private boolean opnionExperto; 
+	private Participante participante;
 	private LocalDate fechaEmision;
 	
 	public TipoOpinion getTipoOpinion() {
 		return this.tipoOpinion;
 	}
 
-	public Opinion(TipoOpinion tipoOpinion,long id) {
+	public Opinion(TipoOpinion tipoOpinion,Participante participante) {
 		this.tipoOpinion = tipoOpinion;
-		this.idParticipante = id;
+		this.participante = participante;
 		this.fechaEmision=LocalDate.now();
+		this.opnionExperto = participante.esExperto();
 	}
 
 	public void setTipoOpinion(TipoOpinion tipoOpinion) {
@@ -26,8 +28,8 @@ public class Opinion {
 		return participante;
 	}
 */
-	public void setIdParticipante(long id) {
-		this.idParticipante = id;
+	public long getIdParticipante() {
+		return participante.getId();
 	}
 
 }

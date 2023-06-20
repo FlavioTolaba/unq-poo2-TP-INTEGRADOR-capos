@@ -7,14 +7,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 //sssa
-public class Muestra {
+public class Muestra implements MuestraObservable {
 
-	private Long idParticipante;
+	private long idParticipante;
 	private String foto;
 	private LocalDate date;
 	private List<Opinion> opiniones;
 	private Ubicacion ubicacion;
-	private Optional<Opinion> tipoVinchuca;
+	private TipoOpinion tipoVinchuca;
+	private List<ObservadorMuestra> observadores;
 	
 	public Muestra(long idParticipante, String foto,Ubicacion ubicacion) {
 		this.idParticipante = idParticipante;
@@ -22,7 +23,7 @@ public class Muestra {
 		this.ubicacion = ubicacion;
 		this.date = LocalDate.now();
 		this.opiniones = new ArrayList<Opinion>();
-		
+		this.observadores = new ArrayList<ObservadorMuestra>();
 		
 		
 	}
@@ -60,11 +61,11 @@ public class Muestra {
 	}
 	
 
-	public Optional<Opinion> getTipoVinchuca() {
+	public TipoOpinion getTipoVinchuca() {
 		return tipoVinchuca;
 	}
 
-	public void setTipoVinchuca(Optional<Opinion> result) {
+	public void setTipoVinchuca(TipoOpinion result) {
 		this.tipoVinchuca = result;
 	}
 
@@ -72,45 +73,48 @@ public class Muestra {
 		this.getOpiniones().add(opinion);
 	}
 	
-/*	public boolean tieneUnaOpinionDeParticipante(Participante participante) {
-		return this.getOpiniones().stream().anyMatch(p -> p.getParticipante().equals(participante));
-	}
-	*/
-	
-	//metodos
-	public void resultadoActual(Muestra muestra) {
-		//recorrer lista hasta encontrar 3 opiniones que coincidan primero. puede ser con un findFirst u otro metodo.
-		//this.getOpiniones().stream().forEach(opinion -> opinion.getTipoOpinion());
-		Optional<Opinion> result = muestra.getOpiniones().stream()
-				.filter(e -> Collections.frequency(opiniones, e.getTipoOpinion()) >= 3).findFirst();
+	public void verificar() {
 		
-		if (result.isPresent()) {
-			this.setTipoVinchuca(result);;
-		}}
+	}
 
-	
-
+	public void resultadoActual() {}
 	
 	public void recibirOpinion(Opinion opinion) {
 		
-		if(! this.getOpiniones().contains(opinion)) {
+		if(! this.getOpiniones().contains(opinion) && this.puedeOpinar(opinion)) {
 		
 			this.agregarOpinion(opinion);
 		
 		}
 	}
+	//se verifica si un participante puede opinar, verificando las opiniones anteriores
+	private boolean puedeOpinar(Opinion opinion) {
+		if()
+	}
 
-		
-		
+	@Override
+	public void añadirObservador(ObservadorMuestra observador) {
+		this.observadores.add(observador);
 		
 	}
-	
 
-		//this.setResultadoActual(resultadoActual);
-	//}
-	//debo crear al parcipante Experto
-//	public boolean verificada(Tipo) {
-	//	return muestra.
-//	}
+	@Override
+	public void eliminarObservador(ObservadorMuestra observador) {
+		this.observadores.remove(observador);
+		
+	}
+
+	@Override
+	public void notificarObservadoresNuevaMuestra() {
+		this.observadores.forEach(observador -> observador.recibirNotificacionNuevaMuestra(this));
+	}
+
+	@Override
+	public void notificarObservadoresValidacion() {
+		this.observadores.forEach(observador -> observador.recibirNotificacionValidacion(this));
+	}
+
+		
+}
 
 

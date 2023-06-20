@@ -9,11 +9,8 @@ import java.util.ArrayList;
 
 public class Participante {
 	
-    
-
-	private long id;	
+    private long id;	
 	private String nombre;
-    private LocalDate fechaUltimoCambioNivel;
 	protected List<Muestra> muestrasEnviadas;
     private List<Opinion> opinionesRealizadas;
     
@@ -22,7 +19,6 @@ public class Participante {
     public Participante(String nombre,long id) {
     	this.setId(id);
     	this.setNombre(nombre);
-        this.fechaUltimoCambioNivel = LocalDate.now();
         this.muestrasEnviadas = new ArrayList<Muestra>();
         this.opinionesRealizadas = new ArrayList<Opinion>();
     }	
