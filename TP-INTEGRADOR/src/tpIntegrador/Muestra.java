@@ -45,11 +45,11 @@ public class Muestra implements MuestraObservable {
 	}
 
 	public LocalDate getDate() {
-		return date;
+		return fechaCreacion;
 	}
 
 	public void setDate(LocalDate date) {
-		this.date = date;
+		this.fechaCreacion = date;
 	}
 
 	public List<Opinion> getOpiniones() {

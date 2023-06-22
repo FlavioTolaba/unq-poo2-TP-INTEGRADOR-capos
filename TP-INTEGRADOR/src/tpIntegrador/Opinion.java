@@ -8,7 +8,7 @@ public class Opinion {
 	private boolean opnionExperto; 
 	private Participante participante;
 	private LocalDate fechaEmision;
-	
+//ss	
 	public TipoOpinion getTipoOpinion() {
 		return this.tipoOpinion;
 	}
