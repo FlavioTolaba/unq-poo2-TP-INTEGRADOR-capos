@@ -58,5 +58,10 @@ public class MuestraTest {
 		assertEquals(muestra.getOpiniones().size(),1);
 	}
 	
+	@Test
+	void testMuestraTieneNuevaOpinionDeParticipanteExperto() {}
+	@Test
+	void testMuestraEsVerificada() {}
+	
 }
 	

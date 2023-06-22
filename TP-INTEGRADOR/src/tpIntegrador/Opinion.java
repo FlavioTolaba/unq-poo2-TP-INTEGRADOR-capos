@@ -24,10 +24,6 @@ public class Opinion {
 		this.tipoOpinion = tipoOpinion;
 	}
 
-/*	public Participante getParticipante() {
-		return participante;
-	}
-*/
 	public long getIdParticipante() {
 		return participante.getId();
 	}

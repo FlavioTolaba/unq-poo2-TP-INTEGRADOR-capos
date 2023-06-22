@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-//sssa
+
 public class Muestra implements MuestraObservable {
 
 	private long idParticipante;
 	private String foto;
-	private LocalDate date;
+	private LocalDate fechaCreacion;
 	private List<Opinion> opiniones;
 	private Ubicacion ubicacion;
 	private TipoOpinion tipoVinchuca;
@@ -21,7 +21,7 @@ public class Muestra implements MuestraObservable {
 		this.idParticipante = idParticipante;
 		this.foto = foto;
 		this.ubicacion = ubicacion;
-		this.date = LocalDate.now();
+		this.fechaCreacion = LocalDate.now();
 		this.opiniones = new ArrayList<Opinion>();
 		this.observadores = new ArrayList<ObservadorMuestra>();
 		
