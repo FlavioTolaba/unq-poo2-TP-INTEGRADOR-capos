@@ -92,7 +92,7 @@ public abstract class Participante {
     	return this.getCantidadDeMuestrasEnviadas()>=10 && this.getCantidadDeOpinionesEnviadas()>=20;
     }
     
-    abstract void actualizarTipo();
+    abstract void actualizarClaseParticipante();
     
    
 }

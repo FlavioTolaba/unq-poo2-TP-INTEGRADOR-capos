@@ -84,7 +84,7 @@ void testNivelBasicoParticipanteBasico() {
 	
 	participante1.enviarMuestra(muestra1);
 	participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
-	participante1.actualizarTipo();
+	participante1.actualizarClaseParticipante();
 	
 	assertEquals(participante1.getTipoParticipante(), ClaseParticipante.BASICO);
 }
@@ -103,7 +103,7 @@ void testNivelExpertoParticipanteBasico() {
 		a = a + 1;
 	}
 	
-	participante1.actualizarTipo();
+	participante1.actualizarClaseParticipante();
 	
 	assertEquals(participante1.getTipoParticipante(), ClaseParticipante.EXPERTO);
 
@@ -123,7 +123,7 @@ void testNivelExpertoParticipanteExperto() {
 		a = a + 1;
 	}
 	
-	participante2.actualizarTipo();
+	participante2.actualizarClaseParticipante();
 	
 	assertEquals(participante2.getTipoParticipante(), ClaseParticipante.EXPERTO);
 
@@ -134,7 +134,7 @@ void testNivelExpertoParticipanteExperto() {
 void testNivelBasicoParticipanteExperto() {
 	participante2.enviarMuestra(muestra1);
 	participante2.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
-	participante2.actualizarTipo();
+	participante2.actualizarClaseParticipante();
 	
 	assertEquals(participante2.getTipoParticipante(), ClaseParticipante.BASICO);
 	

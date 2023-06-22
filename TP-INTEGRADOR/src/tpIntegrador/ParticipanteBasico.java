@@ -8,7 +8,7 @@ public class ParticipanteBasico extends Participante{
 	}
 
 	@Override
-	public void actualizarTipo() {
+	public void actualizarClaseParticipante() {
 	
 		if(!this.esExperto()) {
 			
