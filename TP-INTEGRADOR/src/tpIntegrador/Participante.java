@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.ArrayList;
 
-public class Participante {
+public abstract class Participante {
 	
     
 
@@ -15,7 +15,7 @@ public class Participante {
 	private String nombre;
 	protected List<Muestra> muestrasEnviadas;
     private List<Opinion> opinionesRealizadas;
-    private TipoParticipante tipoParticipante;
+    private ClaseParticipante claseParticipante;
     
    
 
@@ -24,7 +24,7 @@ public class Participante {
     	this.setNombre(nombre);
         this.muestrasEnviadas = new ArrayList<Muestra>();
         this.opinionesRealizadas = new ArrayList<Opinion>();
-        this.tipoParticipante = new ParticipanteBasico();
+        this.claseParticipante = ClaseParticipante.BASICO;
     }	
     
     private void setNombre(String nombre) {
@@ -39,12 +39,12 @@ public class Participante {
 		this.id = id;
 	}
 	
-	public void setTipoParticipante(TipoParticipante tipo) {
-		this.tipoParticipante = tipo;
+	public void setTipoParticipante(ClaseParticipante clase) {
+		this.claseParticipante = clase;
 	}
 	
-	public TipoParticipante getTipoParticipante() {
-		return tipoParticipante;
+	public ClaseParticipante getTipoParticipante() {
+		return claseParticipante;
 	}
     
     public String getNombre() {
@@ -64,20 +64,6 @@ public class Participante {
     	return opinion;
     }
     
-    public ClaseParticipante getNivelUsuario() {
-
-    	ClaseParticipante nivel;
-    	
-    	if(this.getCantidadDeMuestrasEnviadas()>=10 && this.getCantidadDeOpinionesEnviadas()>=20) {
-    		nivel = ClaseParticipante.EXPERTO;
-    	} else {
-    		nivel = ClaseParticipante.BASICO;
-    	}
-    	
-    	return nivel;
-    }
-    
-
     
     public List<Muestra> getMuestrasEnviadas() {
 		return muestrasEnviadas;
@@ -101,11 +87,12 @@ public class Participante {
     	
     }
     
-    public void actualizarTipo(Participante participante) {
+    public boolean esExperto() {
     	
-    	tipoParticipante.actualizarTipo(participante);
-    	
+    	return this.getCantidadDeMuestrasEnviadas()>=10 && this.getCantidadDeOpinionesEnviadas()>=20;
     }
+    
+    abstract void actualizarTipo();
     
    
 }

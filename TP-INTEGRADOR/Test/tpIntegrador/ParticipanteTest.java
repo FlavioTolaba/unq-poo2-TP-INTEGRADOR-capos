@@ -11,7 +11,7 @@ class ParticipanteTest {
 	private Opinion opinion1;
 	private Participante participante1;
 	private Participante participante2;
-	private TipoParticipante tipo1;
+	private ClaseParticipante tipo1;
 	@BeforeEach
 	
 	void setUp() throws Exception {
@@ -19,9 +19,9 @@ class ParticipanteTest {
 		muestra2 = mock(Muestra.class);
 		muestra3 = mock(Muestra.class);
 		//opinion1=  new Opinion(TipoOpinion.PHTIA_CHINCE, 123L);
-		participante1 = new Participante("Leo", 123L);
-		participante2=	new Participante("Lucas", 912L);
-		tipo1= new ParticipanteBasico();
+		participante1 = new ParticipanteBasico("Leo", 123L);
+		participante2=	new ParticipanteExperto("Lucas", 912L);
+		tipo1= ClaseParticipante.BASICO;
 	}
 
 @Test
@@ -78,22 +78,22 @@ void testCantidadOpiniones	() {
 
 @Test
 
-//Nivel Basico
+//Nivel Basico Participante Basico
 	
-void testNivelParticipante() {
+void testNivelBasicoParticipanteBasico() {
 	
 	participante1.enviarMuestra(muestra1);
 	participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
-	participante1.actualizarTipo(participante1);
+	participante1.actualizarTipo();
 	
-	assertTrue(!tipo1.esExperto(participante1));
+	assertEquals(participante1.getTipoParticipante(), ClaseParticipante.BASICO);
 }
 
 @Test
 
-//Nivel Experto
+//Nivel Experto Participante Basico
 
-void testNivelExperto() {
+void testNivelExpertoParticipanteBasico() {
 	int a = 0;
 	while(a < 30) {
 		
@@ -103,7 +103,40 @@ void testNivelExperto() {
 		a = a + 1;
 	}
 	
-	assertTrue(tipo1.esExperto(participante1));
+	participante1.actualizarTipo();
+	
+	assertEquals(participante1.getTipoParticipante(), ClaseParticipante.EXPERTO);
+
 }
 
+@Test
+
+//Nivel Experto Participante Experto
+
+void testNivelExpertoParticipanteExperto() {
+	int a = 0;
+	while(a < 30) {
+		
+		participante2.enviarMuestra(muestra1);
+		participante2.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
+		
+		a = a + 1;
+	}
+	
+	participante2.actualizarTipo();
+	
+	assertEquals(participante2.getTipoParticipante(), ClaseParticipante.EXPERTO);
+
+}
+
+@Test
+
+void testNivelBasicoParticipanteExperto() {
+	participante2.enviarMuestra(muestra1);
+	participante2.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
+	participante2.actualizarTipo();
+	
+	assertEquals(participante2.getTipoParticipante(), ClaseParticipante.BASICO);
+	
+}
 }
