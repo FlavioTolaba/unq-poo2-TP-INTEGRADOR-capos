@@ -15,7 +15,10 @@ public class Muestra implements MuestraObservable {
 	private List<Opinion> opiniones;
 	private Ubicacion ubicacion;
 	private TipoOpinion tipoVinchuca;
+	private EstadoVerificacion estado;
 	private List<ObservadorMuestra> observadores;
+	//donde agregar los observadores que son zonas de cobertura
+	//cambiar interfaces por clases en UML
 	
 	public Muestra(long idParticipante, String foto,Ubicacion ubicacion) {
 		this.idParticipante = idParticipante;
@@ -24,8 +27,6 @@ public class Muestra implements MuestraObservable {
 		this.fechaCreacion = LocalDate.now();
 		this.opiniones = new ArrayList<Opinion>();
 		this.observadores = new ArrayList<ObservadorMuestra>();
-		
-		
 	}
 
 	public long getIdParticipante() {
@@ -79,14 +80,14 @@ public class Muestra implements MuestraObservable {
 
 	public void resultadoActual() {}
 	
-	public void recibirOpinion(Opinion opinion) {
+	/*public void recibirOpinion(Opinion opinion) {
 		
 		if(! this.getOpiniones().contains(opinion) && this.puedeOpinar(opinion)) {
 		
 			this.agregarOpinion(opinion);
 		
 		}
-	}
+	}*/
 	//se verifica si un participante puede opinar, verificando las opiniones anteriores
 	private boolean puedeOpinar(Opinion opinion) {
 		if()

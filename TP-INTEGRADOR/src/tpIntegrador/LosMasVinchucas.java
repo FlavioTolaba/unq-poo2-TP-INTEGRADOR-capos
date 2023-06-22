@@ -17,13 +17,15 @@ public class LosMasVinchucas  {
 		this.zonas = new ArrayList<ZonaDeCobertura>();
 	}
 	
-	public void participanteCargaMuestra(String foto,Participante participante,Ubicacion ubicacion,TipoOpinion opinionNueva){
-		Muestra muestra=new Muestra(participante.getId(),foto,ubicacion);
+	public void participanteCargaMuestra(Participante participante, Muestra muestra){
+		//ver constructor
 		this.muestras.add(muestra);
 		participante.enviarMuestra(muestra);
-		muestra.notificarObservadoresNuevaMuestra();
+		//this.zonasDeCobertura notificar nueva muestra
 	}
-	
+	//participanteCargaMuestra
+	//registrarParticipante
+
 	public void registrarParticipante(Participante participante) {
 		this.participantes.add(participante);
 	}
@@ -38,11 +40,16 @@ public class LosMasVinchucas  {
 	public void setMuestras(List<Muestra> muestras) {
 		this.muestras = muestras;
 	}
+	
+	//getOrganizacion pide organizacionesSuscriptas a Zonas
+	
 	public void participanteCargaNuevaOpinion(Participante participante2, Muestra muestra2, TipoOpinion tipo) {
 		
 		participante2.enviarOpinion(tipo, muestra2);
 		
 	}
+	
+	
 	
 	// public void actualizarClaseParticipantes;
 
