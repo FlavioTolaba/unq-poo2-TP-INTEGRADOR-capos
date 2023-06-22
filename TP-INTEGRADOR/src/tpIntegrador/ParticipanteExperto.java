@@ -5,6 +5,7 @@ public class ParticipanteExperto extends Participante {
 
 	public ParticipanteExperto(String nombre, long id) {
 		super(nombre, id);
+		this.setClaseParticipante(ClaseParticipante.EXPERTO);
 	}
 
 	@Override

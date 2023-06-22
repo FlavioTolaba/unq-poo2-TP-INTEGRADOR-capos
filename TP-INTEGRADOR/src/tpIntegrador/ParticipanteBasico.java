@@ -5,6 +5,7 @@ public class ParticipanteBasico extends Participante{
 	
 	public ParticipanteBasico(String nombre, long id) {
 		super(nombre, id);
+		this.setClaseParticipante(ClaseParticipante.BASICO);
 	}
 
 	@Override

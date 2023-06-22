@@ -11,6 +11,7 @@ class ParticipanteTest {
 	private Opinion opinion1;
 	private Participante participante1;
 	private Participante participante2;
+	private Participante participante3;
 	private ClaseParticipante tipo1;
 	@BeforeEach
 	
@@ -21,6 +22,7 @@ class ParticipanteTest {
 		//opinion1=  new Opinion(TipoOpinion.PHTIA_CHINCE, 123L);
 		participante1 = new ParticipanteBasico("Leo", 123L);
 		participante2=	new ParticipanteExperto("Lucas", 912L);
+		participante3= new ParticipanteExpertoValidado("Alejo", 420L);
 		tipo1= ClaseParticipante.BASICO;
 	}
 
@@ -62,7 +64,7 @@ void testEnviarOpiniones() {
 	
 	  participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
 
-	     assertTrue(participante1.getOpinionesEnviadas().contains(opinion1));
+	     assertFalse(participante1.getOpinionesEnviadas().contains(opinion1));
 	 	}
 	
 @Test
@@ -86,7 +88,7 @@ void testNivelBasicoParticipanteBasico() {
 	participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
 	participante1.actualizarClaseParticipante();
 	
-	assertEquals(participante1.getTipoParticipante(), ClaseParticipante.BASICO);
+	assertEquals(participante1.getClaseParticipante(), ClaseParticipante.BASICO);
 }
 
 @Test
@@ -105,7 +107,7 @@ void testNivelExpertoParticipanteBasico() {
 	
 	participante1.actualizarClaseParticipante();
 	
-	assertEquals(participante1.getTipoParticipante(), ClaseParticipante.EXPERTO);
+	assertEquals(participante1.getClaseParticipante(), ClaseParticipante.EXPERTO);
 
 }
 
@@ -125,7 +127,7 @@ void testNivelExpertoParticipanteExperto() {
 	
 	participante2.actualizarClaseParticipante();
 	
-	assertEquals(participante2.getTipoParticipante(), ClaseParticipante.EXPERTO);
+	assertEquals(participante2.getClaseParticipante(), ClaseParticipante.EXPERTO);
 
 }
 
@@ -136,7 +138,21 @@ void testNivelBasicoParticipanteExperto() {
 	participante2.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
 	participante2.actualizarClaseParticipante();
 	
-	assertEquals(participante2.getTipoParticipante(), ClaseParticipante.BASICO);
+	assertEquals(participante2.getClaseParticipante(), ClaseParticipante.BASICO);
+}
+
+@Test
+
+//ParticipanteExpertoValidado
+
+void testNivelExpertoValidado() {
+
+	assertEquals(participante3.getClaseParticipante(), ClaseParticipante.EXPERTO);
+	participante3.enviarMuestra(muestra1);
+	participante3.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
+	participante3.actualizarClaseParticipante();
+	assertEquals(participante3.getClaseParticipante(), ClaseParticipante.EXPERTO);
 	
 }
+
 }

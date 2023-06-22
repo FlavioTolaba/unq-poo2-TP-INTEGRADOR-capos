@@ -24,7 +24,7 @@ public abstract class Participante {
     	this.setNombre(nombre);
         this.muestrasEnviadas = new ArrayList<Muestra>();
         this.opinionesRealizadas = new ArrayList<Opinion>();
-        this.claseParticipante = ClaseParticipante.BASICO;
+        this.setClaseParticipante(ClaseParticipante.BASICO);
     }	
     
     private void setNombre(String nombre) {
@@ -40,12 +40,10 @@ public abstract class Participante {
 	}
 	
 	public void setTipoParticipante(ClaseParticipante clase) {
-		this.claseParticipante = clase;
+		this.setClaseParticipante(clase);
 	}
 	
-	public ClaseParticipante getTipoParticipante() {
-		return claseParticipante;
-	}
+
     
     public String getNombre() {
     	return this.nombre;
@@ -93,6 +91,14 @@ public abstract class Participante {
     }
     
     abstract void actualizarClaseParticipante();
+
+	public ClaseParticipante getClaseParticipante() {
+		return claseParticipante;
+	}
+
+	public void setClaseParticipante(ClaseParticipante claseParticipante) {
+		this.claseParticipante = claseParticipante;
+	}
     
    
 }
