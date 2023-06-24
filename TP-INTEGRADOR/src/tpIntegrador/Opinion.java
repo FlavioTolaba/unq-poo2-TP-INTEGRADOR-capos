@@ -1,5 +1,7 @@
 package tpIntegrador;
 
+import java.time.LocalDate;
+
 public class Opinion {
 	
 	private TipoOpinion tipoOpinion;
@@ -24,6 +26,11 @@ public class Opinion {
 */
 	public void setIdParticipante(long id) {
 		this.idParticipante = id;
+	}
+
+	public LocalDate getFechaOpinion() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

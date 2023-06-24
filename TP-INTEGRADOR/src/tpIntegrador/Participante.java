@@ -1,10 +1,8 @@
 
 package tpIntegrador;
 
-import java.time.LocalDate;
-import java.util.HashSet;
+import java.time.*;
 import java.util.List;
-import java.util.Set;
 import java.util.ArrayList;
 
 public abstract class Participante {
@@ -51,15 +49,19 @@ public abstract class Participante {
 
     
     public void enviarMuestra(Muestra muestra) {
-        muestrasEnviadas.add(muestra);
+        this.muestrasEnviadas.add(muestra);
     }
     
     
-    public Opinion enviarOpinion(TipoOpinion opinion1, Muestra muestra) {
+   /* public Opinion enviarOpinion(TipoOpinion opinion1, Muestra muestra) {
         Opinion opinion=new Opinion(opinion1,this.getId());
     	opinionesRealizadas.add(opinion);
     	muestra.recibirOpinion(opinion);
     	return opinion;
+    }*/
+    
+    public void enviarOpinion(Opinion opinion) {
+    	this.opinionesRealizadas.add(opinion);
     }
     
     
@@ -73,16 +75,29 @@ public abstract class Participante {
     
     public int getCantidadDeMuestrasEnviadas() {
     	
-    	int cantidad = this.getMuestrasEnviadas().size();
-    	return cantidad;
+    	int cantidad = 0;
+    	LocalDate diaHoy = LocalDate.now();
     	
+    	for(Muestra m : this.muestrasEnviadas) {
+    		if(Calculos.calcularDiferenciaDias(m.getDate(), diaHoy) <=30) {
+    			cantidad ++;
+    			}
+      		}
+    	return cantidad;
     }
+    
     
     public int getCantidadDeOpinionesEnviadas() {
     	
-    	int cantidad = this.getOpinionesEnviadas().size();
-    	return cantidad;
+    	int cantidad = 0;
+    	LocalDate diaHoy = LocalDate.now();
     	
+    	for(Opinion o : this.opinionesRealizadas) {
+    		if(Calculos.calcularDiferenciaDias(o.getFechaOpinion(), diaHoy) <=30) {
+    			cantidad ++;
+    			}
+      		}
+    	return cantidad;	
     }
     
     public boolean esExperto() {

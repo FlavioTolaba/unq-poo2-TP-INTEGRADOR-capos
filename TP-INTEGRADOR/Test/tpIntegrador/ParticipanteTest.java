@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import static org.mockito.Mockito.*;
 
+import java.time.LocalDate;
+
 class ParticipanteTest {
 	private Muestra muestra1;
 	private Muestra muestra2;
@@ -12,18 +14,20 @@ class ParticipanteTest {
 	private Participante participante1;
 	private Participante participante2;
 	private Participante participante3;
-	private ClaseParticipante tipo1;
 	@BeforeEach
 	
 	void setUp() throws Exception {
 		muestra1 = mock(Muestra.class);
 		muestra2 = mock(Muestra.class);
 		muestra3 = mock(Muestra.class);
-		//opinion1=  new Opinion(TipoOpinion.PHTIA_CHINCE, 123L);
+		opinion1 = mock(Opinion.class);
+		when(opinion1.getFechaOpinion()).thenReturn(LocalDate.now());
+		when(muestra1.getDate()).thenReturn(LocalDate.now());
+		when(muestra2.getDate()).thenReturn(LocalDate.now());
+		when(muestra3.getDate()).thenReturn(LocalDate.now());
 		participante1 = new ParticipanteBasico("Leo", 123L);
 		participante2=	new ParticipanteExperto("Lucas", 912L);
 		participante3= new ParticipanteExpertoValidado("Alejo", 420L);
-		tipo1= ClaseParticipante.BASICO;
 	}
 
 @Test
@@ -62,9 +66,9 @@ void testCantidadMuestras() {
 
 void testEnviarOpiniones() {
 	
-	  participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
+	  participante1.enviarOpinion(opinion1);
 
-	     assertFalse(participante1.getOpinionesEnviadas().contains(opinion1));
+	     assertTrue(participante1.getOpinionesEnviadas().contains(opinion1));
 	 	}
 	
 @Test
@@ -72,7 +76,7 @@ void testEnviarOpiniones() {
 //Cantidad de Opiniones enviadas
 
 void testCantidadOpiniones	() {
-    participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
+    participante1.enviarOpinion(opinion1);
     
     assertEquals(participante1.getCantidadDeOpinionesEnviadas(), 1);
 }
@@ -85,7 +89,7 @@ void testCantidadOpiniones	() {
 void testNivelBasicoParticipanteBasico() {
 	
 	participante1.enviarMuestra(muestra1);
-	participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
+	participante1.enviarOpinion(opinion1);
 	participante1.actualizarClaseParticipante();
 	
 	assertEquals(participante1.getClaseParticipante(), ClaseParticipante.BASICO);
@@ -100,7 +104,7 @@ void testNivelExpertoParticipanteBasico() {
 	while(a < 30) {
 		
 		participante1.enviarMuestra(muestra1);
-		participante1.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
+		participante1.enviarOpinion(opinion1);
 		
 		a = a + 1;
 	}
@@ -120,7 +124,7 @@ void testNivelExpertoParticipanteExperto() {
 	while(a < 30) {
 		
 		participante2.enviarMuestra(muestra1);
-		participante2.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
+		participante2.enviarOpinion(opinion1);
 		
 		a = a + 1;
 	}
@@ -135,7 +139,7 @@ void testNivelExpertoParticipanteExperto() {
 
 void testNivelBasicoParticipanteExperto() {
 	participante2.enviarMuestra(muestra1);
-	participante2.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
+	participante2.enviarOpinion(opinion1);
 	participante2.actualizarClaseParticipante();
 	
 	assertEquals(participante2.getClaseParticipante(), ClaseParticipante.BASICO);
@@ -149,7 +153,7 @@ void testNivelExpertoValidado() {
 
 	assertEquals(participante3.getClaseParticipante(), ClaseParticipante.EXPERTO);
 	participante3.enviarMuestra(muestra1);
-	participante3.enviarOpinion(TipoOpinion.CHINCE_FOLIADA, muestra1);
+	participante3.enviarOpinion(opinion1);
 	participante3.actualizarClaseParticipante();
 	assertEquals(participante3.getClaseParticipante(), ClaseParticipante.EXPERTO);
 	
