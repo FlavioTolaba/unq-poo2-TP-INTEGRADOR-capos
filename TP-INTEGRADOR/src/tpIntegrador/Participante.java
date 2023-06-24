@@ -53,12 +53,6 @@ public abstract class Participante {
     }
     
     
-   /* public Opinion enviarOpinion(TipoOpinion opinion1, Muestra muestra) {
-        Opinion opinion=new Opinion(opinion1,this.getId());
-    	opinionesRealizadas.add(opinion);
-    	muestra.recibirOpinion(opinion);
-    	return opinion;
-    }*/
     
     public void enviarOpinion(Opinion opinion) {
     	this.opinionesRealizadas.add(opinion);
