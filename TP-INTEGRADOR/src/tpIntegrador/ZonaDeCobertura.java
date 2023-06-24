@@ -47,7 +47,7 @@ public class ZonaDeCobertura implements ObservadorMuestra{
 	} 
 	
 	
-	
+	//implementar msj
 	public boolean estaEnCobertura(Muestra muestra) {
 		return true;
 	}

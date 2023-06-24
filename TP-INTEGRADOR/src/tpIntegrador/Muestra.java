@@ -78,19 +78,26 @@ public class Muestra implements MuestraObservable {
 		
 	}
 
-	public void resultadoActual() {}
+	public void resultadoActual() {
+	//hacer cambio de estado
+	this.estado.resultadoActual();
+	}
 	
-	/*public void recibirOpinion(Opinion opinion) {
+/*public void recibirOpinion(Opinion opinion) {
+
+if(! this.getOpiniones().contains(opinion) && this.puedeOpinar(opinion)) {
+
+	this.agregarOpinion(opinion);
+
+}*/
+	public void recibirOpinion(Opinion opinion) {
 		
-		if(! this.getOpiniones().contains(opinion) && this.puedeOpinar(opinion)) {
-		
-			this.agregarOpinion(opinion);
-		
-		}
-	}*/
+	}
+
+
 	//se verifica si un participante puede opinar, verificando las opiniones anteriores
 	private boolean puedeOpinar(Opinion opinion) {
-		if()
+		this.estado.puedeOpinar(opinion);
 	}
 
 	@Override
