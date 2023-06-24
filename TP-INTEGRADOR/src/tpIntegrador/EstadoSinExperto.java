@@ -1,13 +1,23 @@
 package tpIntegrador;
 
+import static org.mockito.ArgumentMatchers.anyBoolean;
+
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class EstadoSinExperto extends EstadoVerificacion {
 
 	@Override
-	public TipoOpinion resultadoActual() {
-		//implementar
-		return null;
+	public TipoOpinion resultadoActual(Muestra muestra) {
+		List<Opinion> listaOpinionesMuestra=muestra.getOpiniones();
+		if(listaOpinionesMuestra != null && listaOpinionesMuestra.size() != 1) {
+		muestra.getOpiniones().stream().map(opinion -> opinion.getTipoOpinion()).;
+				
+		
+		
+		}
+	
 	}
 
 	@Override
@@ -22,11 +32,11 @@ public class EstadoSinExperto extends EstadoVerificacion {
 	}
 
 	@Override
-	public void actualizarEstado(Muestra muestra, ArrayList<Opinion> opiniones) {
-		if(opiniones.tiene) {
-			
-		}
+	public void actualizarEstado() {
+		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }

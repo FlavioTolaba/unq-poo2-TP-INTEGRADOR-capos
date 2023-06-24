@@ -2,8 +2,8 @@ package tpIntegrador;
 
 public abstract class EstadoVerificacion {
 
-	public abstract TipoOpinion resultadoActual() ;
-	public abstract boolean puedeOpinar(Participante participante) ;
+	public abstract TipoOpinion resultadoActual(Muestra muestra) ;
+	public abstract boolean puedeOpinar(Opinion opinion) ;
 	public abstract void actualizarEstado();
 	public abstract boolean estaVerificada() ;
 }

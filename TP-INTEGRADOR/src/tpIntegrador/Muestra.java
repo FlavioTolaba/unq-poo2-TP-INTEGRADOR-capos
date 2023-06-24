@@ -17,7 +17,6 @@ public class Muestra implements MuestraObservable {
 	private TipoOpinion tipoVinchuca;
 	private EstadoVerificacion estado;
 	private List<ObservadorMuestra> observadores;
-	//donde agregar los observadores que son zonas de cobertura
 	//cambiar interfaces por clases en UML
 	
 	public Muestra(long idParticipante, String foto,Ubicacion ubicacion) {
@@ -74,31 +73,13 @@ public class Muestra implements MuestraObservable {
 		this.getOpiniones().add(opinion);
 	}
 	
-	public void verificar() {
-		
-	}
-
-	public void resultadoActual() {
-	//hacer cambio de estado
-	this.estado.resultadoActual();
-	}
-	
-/*public void recibirOpinion(Opinion opinion) {
-
-if(! this.getOpiniones().contains(opinion) && this.puedeOpinar(opinion)) {
-
-	this.agregarOpinion(opinion);
-
-}*/
-	public void recibirOpinion(Opinion opinion) {
-		
-	}
-
-
 	//se verifica si un participante puede opinar, verificando las opiniones anteriores
-	private boolean puedeOpinar(Opinion opinion) {
-		this.estado.puedeOpinar(opinion);
-	}
+	public void recibirOpinion(Opinion opinion) {
+		if(estado.puedeOpinar(opinion) && opinion.getIdParticipante() != this.idParticipante) {
+			this.agregarOpinion(opinion);
+			estado.actualizarEstado();
+		}
+	}	
 
 	@Override
 	public void añadirObservador(ObservadorMuestra observador) {

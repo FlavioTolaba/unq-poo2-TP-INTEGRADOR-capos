@@ -4,11 +4,10 @@ import java.time.LocalDate;
 
 public class Opinion {
 	
-	private TipoOpinion tipoOpinion;
-	private boolean opnionExperto; 
+	private TipoOpinion tipoOpinion; 
 	private Participante participante;
 	private LocalDate fechaEmision;
-//ss	
+	
 	public TipoOpinion getTipoOpinion() {
 		return this.tipoOpinion;
 	}
@@ -17,7 +16,6 @@ public class Opinion {
 		this.tipoOpinion = tipoOpinion;
 		this.participante = participante;
 		this.fechaEmision=LocalDate.now();
-		this.opnionExperto = participante.esExperto();
 	}
 
 	public void setTipoOpinion(TipoOpinion tipoOpinion) {
@@ -27,5 +25,14 @@ public class Opinion {
 	public long getIdParticipante() {
 		return participante.getId();
 	}
+	
+	public boolean esOpinionDeExperto() {
+		return participante.esExperto();
+	}
 
+	public LocalDate getFechaOpinion() {
+		return fechaEmision;
+	}
+	
+	
 }
