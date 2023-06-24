@@ -1,18 +1,19 @@
 
 package tpIntegrador;
 
-import java.time.LocalDate;
-import java.util.HashSet;
+import java.time.*;
 import java.util.List;
-import java.util.Set;
 import java.util.ArrayList;
 
-public class Participante {
+public abstract class Participante {
 	
-    private long id;	
+    
+
+	private long id;	
 	private String nombre;
 	protected List<Muestra> muestrasEnviadas;
     private List<Opinion> opinionesRealizadas;
+    private ClaseParticipante claseParticipante;
     
    
 
@@ -21,6 +22,7 @@ public class Participante {
     	this.setNombre(nombre);
         this.muestrasEnviadas = new ArrayList<Muestra>();
         this.opinionesRealizadas = new ArrayList<Opinion>();
+        this.setClaseParticipante(ClaseParticipante.BASICO);
     }	
     
     private void setNombre(String nombre) {
@@ -34,6 +36,12 @@ public class Participante {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	public void setTipoParticipante(ClaseParticipante clase) {
+		this.setClaseParticipante(clase);
+	}
+	
+
     
     public String getNombre() {
     	return this.nombre;
@@ -41,30 +49,15 @@ public class Participante {
 
     
     public void enviarMuestra(Muestra muestra) {
-        muestrasEnviadas.add(muestra);
+        this.muestrasEnviadas.add(muestra);
     }
     
-    public Opinion enviarOpinion(TipoOpinion opinion1, Muestra muestra) {
-        Opinion opinion=new Opinion(opinion1,this.getId());
-    	opinionesRealizadas.add(opinion);
-    	muestra.recibirOpinion(opinion);
-    	return opinion;
+    
+    
+    public void enviarOpinion(Opinion opinion) {
+    	this.opinionesRealizadas.add(opinion);
     }
     
-    public ClaseParticipante getNivelUsuario() {
-
-    	ClaseParticipante nivel;
-    	
-    	if(this.getCantidadDeMuestrasEnviadas()>=10 && this.getCantidadDeOpinionesEnviadas()>=20) {
-    		nivel = ClaseParticipante.EXPERTO;
-    	} else {
-    		nivel = ClaseParticipante.BASICO;
-    	}
-    	
-    	return nivel;
-    }
-    
-
     
     public List<Muestra> getMuestrasEnviadas() {
 		return muestrasEnviadas;
@@ -76,17 +69,46 @@ public class Participante {
     
     public int getCantidadDeMuestrasEnviadas() {
     	
-    	int cantidad = this.getMuestrasEnviadas().size();
-    	return cantidad;
+    	int cantidad = 0;
+    	LocalDate diaHoy = LocalDate.now();
     	
+    	for(Muestra m : this.muestrasEnviadas) {
+    		if(Calculos.calcularDiferenciaDias(m.getDate(), diaHoy) <=30) {
+    			cantidad ++;
+    			}
+      		}
+    	return cantidad;
     }
+    
     
     public int getCantidadDeOpinionesEnviadas() {
     	
-    	int cantidad = this.getOpinionesEnviadas().size();
-    	return cantidad;
+    	int cantidad = 0;
+    	LocalDate diaHoy = LocalDate.now();
     	
+    	for(Opinion o : this.opinionesRealizadas) {
+    		if(Calculos.calcularDiferenciaDias(o.getFechaOpinion(), diaHoy) <=30) {
+    			cantidad ++;
+    			}
+      		}
+    	return cantidad;	
     }
     
+    public boolean esExperto() {
+    	this.actualizarClaseParticipante();
+    	return this.getCantidadDeMuestrasEnviadas()>=10 && this.getCantidadDeOpinionesEnviadas()>=20;
+    }
+    
+    abstract void actualizarClaseParticipante();
+
+	public ClaseParticipante getClaseParticipante() {
+		return claseParticipante;
+	}
+
+	public void setClaseParticipante(ClaseParticipante claseParticipante) {
+		this.claseParticipante = claseParticipante;
+	}
+    
+   
 }
 
