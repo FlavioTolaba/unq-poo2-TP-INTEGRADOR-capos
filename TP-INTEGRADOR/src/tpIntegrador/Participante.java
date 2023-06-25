@@ -95,7 +95,7 @@ public abstract class Participante {
     }
     
     public boolean esExperto() {
-    	this.actualizarClaseParticipante();
+    	
     	return this.getCantidadDeMuestrasEnviadas()>=10 && this.getCantidadDeOpinionesEnviadas()>=20;
     }
     
