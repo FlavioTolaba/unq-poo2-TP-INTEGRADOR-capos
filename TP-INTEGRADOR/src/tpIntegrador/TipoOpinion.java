@@ -7,4 +7,7 @@ public enum TipoOpinion {
 	NINGUNA,
 	PHTIA_CHINCE,
 	VINCHUCA,
+	
+	
+	
 }

@@ -17,6 +17,7 @@ public class Muestra implements MuestraObservable {
 	private TipoOpinion tipoVinchuca;
 	private EstadoVerificacion estado;
 	private List<ObservadorMuestra> observadores;
+	
 	//cambiar interfaces por clases en UML
 	
 	public Muestra(long idParticipante, String foto,Ubicacion ubicacion) {
@@ -81,6 +82,10 @@ public class Muestra implements MuestraObservable {
 		}
 	}	
 
+	public TipoOpinion resultadoActual() {
+		return estado.resultadoActual(this);
+	}
+	
 	@Override
 	public void añadirObservador(ObservadorMuestra observador) {
 		this.observadores.add(observador);
