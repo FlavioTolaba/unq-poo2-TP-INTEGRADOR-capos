@@ -19,6 +19,13 @@ public class Organizacion implements FuncionalidadExterna,ObservadorZonaDeCobert
 		return tipoOrganizacion;
 	}
 
+	public void registrarseEnZonaDeCobertura(ZonaDeCobertura zona) {
+		zona.añadirObservador(this);
+	}
+	public void darDeBajaZonaDeCobertura(ZonaDeCobertura zona) {
+		zona.eliminarObservador(this);
+	}
+	
 	@Override
 	public void recibirNotificacionValidacion(Muestra muestra) {
 		this.nuevoEventoPorValidacion();
@@ -26,7 +33,7 @@ public class Organizacion implements FuncionalidadExterna,ObservadorZonaDeCobert
 
 	@Override
 	public void recibirNotificacionNuevaMuestra(Muestra muestra) {
-		this.recibirNotificacionNuevaMuestra(muestra);
+		this.nuevoEventoPorNuevaMuestra();
 		
 	}
 

@@ -1,8 +1,5 @@
 package tpIntegrador;
 
-import static org.mockito.ArgumentMatchers.anyBoolean;
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,17 +10,23 @@ public class EstadoSinExperto extends EstadoVerificacion {
 
 	@Override
 	public TipoOpinion resultadoActual(Muestra muestra) {
-
+		if(! muestra.getOpiniones().isEmpty()) {
 		Map<TipoOpinion, Long>listaTipos=muestra.getOpiniones().stream().collect(Collectors.groupingBy(opinion -> opinion.getTipoOpinion(),Collectors.counting()));
 		
 		List<Entry<TipoOpinion, Long>> lista = new ArrayList<Entry<TipoOpinion, Long>>(listaTipos.entrySet());
 		lista.sort(Entry.comparingByValue());
 		return lista.get(0).getKey();
+	//	return TipoOpinion.NINGUNA;
+		}
+		else {return TipoOpinion.NINGUNA;}
 	}
 		
 	@Override
-	public boolean puedeOpinar(Participante participante) {
-		return true;
+	public boolean puedeOpinar(Opinion opinion,Muestra muestra) {
+		if(muestra.getCantidadExpertos() < 1 ) {
+			return true;
+		}
+		else { return false;}
 	}
 
 	
@@ -33,16 +36,12 @@ public class EstadoSinExperto extends EstadoVerificacion {
 	}
 
 	@Override
-	public void actualizarEstado() {
-		// TODO Auto-generated method stub
-		
+	public void actualizarEstado(Opinion opinion, Muestra muestra) {
+		if( muestra.getCantidadExpertos() == 1) {
+			muestra.cambiarEstado(new EstadoConExperto());
+		}
 	}
 
-	@Override
-	public boolean puedeOpinar(Opinion opinion) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 
 

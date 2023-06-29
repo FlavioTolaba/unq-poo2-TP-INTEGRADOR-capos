@@ -27,14 +27,15 @@ class UbicacionTest {
 		listaUbicaciones.add(ubicacion1);
 	}
 
-/*	@Test
+	@Test
 	//el resultado aplicando teorema de pitagoras de la distancia entre dos puntos (3,3),(6,9), 3.87
 	void testCalculaDistanciaEntreDosUbicaciones() {
 		double resultado=manager.distanciaEntreDosUbicaciones(ubicacion1, ubicacion2);
 		assertEquals(resultado,6.708203932499369);
 	}
+	
 	//caso borde probar con un numero periodico
-	@Test
+/*	@Test
 	//por convencion decimos que los enteros de nuestro programa son KMS en caso de querer metros hay que hacer la conversion
 	void testListaDeUbicacionesAXKilometros() {
 		List<Ubicacion>resultado=manager.ubicacionesEnRango(8,listaUbicaciones,ubicacion1);

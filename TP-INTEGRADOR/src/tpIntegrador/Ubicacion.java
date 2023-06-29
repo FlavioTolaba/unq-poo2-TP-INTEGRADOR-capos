@@ -7,7 +7,10 @@ public class Ubicacion {
 	private double longitudX;
 	private double latitudY;
 	
-	
+	//creo que esta clase deberia tener un administrador que haga los calculos y que esta clase quede para usarse
+	//como un atributo que sea una tupla, ya que hace calculos con la muestra que deberia hacerlos un calculador
+	//pero ya no hay tiempo para ese tipo de refactors
+
 	public Ubicacion(double longitudX, double latitudY) {
 		this.longitudX = longitudX;
 		this.latitudY = latitudY;
@@ -33,11 +36,15 @@ public class Ubicacion {
 		return resultadoFinal;
 	}
 	
-/*	public List<Ubicacion> ubicacionesEnRango(double distancia,List<Ubicacion> listaUbicaciones,Ubicacion ubicacion2) {
+	public List<Ubicacion> ubicacionesEnRango(double distancia,List<Ubicacion> listaUbicaciones) {
 		 return listaUbicaciones.stream().
-				 filter(
-						 ubicacion -> this.distanciaEntreDosUbicaciones(ubicacion, ubicacion2) <=  distancia).toList();
+				 filter(ubicacion -> this.distanciaEntreDosUbicaciones(this,ubicacion) <=  distancia).toList();
 	}
-*/
 
+	//retorna las muestras de la lista provista que esten a menos distancia de la muestra dada.
+	
+	private List<Muestra> muestrasEnRangoDeMuestra(Muestra muestraX,double distancia,List<Muestra> listaMuestras) {
+		return listaMuestras.stream().filter(muestra -> this.distanciaEntreDosUbicaciones(muestraX.getUbicacion(), muestra.getUbicacion()) <= distancia).toList();
+	}
+	
 }

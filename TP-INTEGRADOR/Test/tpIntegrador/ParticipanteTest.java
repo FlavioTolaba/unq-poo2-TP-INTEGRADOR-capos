@@ -11,9 +11,9 @@ class ParticipanteTest {
 	private Muestra muestra2;
 	private Muestra muestra3;
 	private Opinion opinion1;
-	private Participante participante1;
-	private Participante participante2;
-	private Participante participante3;
+	private ParticipanteSinEstudio participante1;
+	private ParticipanteConEstudio participante2;
+	private ParticipanteConEstudio participante3;
 	@BeforeEach
 	
 	void setUp() throws Exception {
@@ -25,9 +25,9 @@ class ParticipanteTest {
 		when(muestra1.getDate()).thenReturn(LocalDate.now());
 		when(muestra2.getDate()).thenReturn(LocalDate.now());
 		when(muestra3.getDate()).thenReturn(LocalDate.now());
-		participante1 = new ParticipanteBasico("Leo", 123L);
-		participante2=	new ParticipanteExperto("Lucas", 912L);
-		participante3= new ParticipanteExpertoValidado("Alejo", 420L);
+		participante1 = new ParticipanteSinEstudio("Leo", 123L);
+		participante2=	new ParticipanteConEstudio("Lucas", 912L);
+		participante3= new ParticipanteConEstudio("Alejo", 420L);
 	}
 
 @Test
@@ -45,7 +45,6 @@ class ParticipanteTest {
 
 //Probando consultar nombre
 void testPedirNombre() {
-	
 	assertEquals(participante1.getNombre(), "Leo");
 }
 
@@ -84,7 +83,7 @@ void testCantidadOpiniones	() {
 
 @Test
 
-//Nivel Basico Participante Basico
+//NivelSinEstudio 
 	
 void testNivelBasicoParticipanteBasico() {
 	
@@ -97,9 +96,9 @@ void testNivelBasicoParticipanteBasico() {
 
 @Test
 
-//Nivel Experto Participante Basico
+//NivelSinEstudioABasico
 
-void testNivelExpertoParticipanteBasico() {
+void testNivelExpertoParticipanteSinEstudio() {
 	int a = 0;
 	while(a < 30) {
 		
@@ -112,7 +111,7 @@ void testNivelExpertoParticipanteBasico() {
 	participante1.actualizarClaseParticipante();
 	
 	assertEquals(participante1.getClaseParticipante(), ClaseParticipante.EXPERTO);
-
+	assertTrue(participante1.esExperto());
 }
 
 @Test
@@ -142,7 +141,7 @@ void testNivelBasicoParticipanteExperto() {
 	participante2.enviarOpinion(opinion1);
 	participante2.actualizarClaseParticipante();
 	
-	assertEquals(participante2.getClaseParticipante(), ClaseParticipante.BASICO);
+	assertEquals(participante2.getClaseParticipante(), ClaseParticipante.EXPERTO);
 }
 
 @Test

@@ -3,9 +3,7 @@ package tpIntegrador;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 public class Muestra implements MuestraObservable {
 
@@ -17,8 +15,7 @@ public class Muestra implements MuestraObservable {
 	private TipoOpinion tipoVinchuca;
 	private EstadoVerificacion estado;
 	private List<ObservadorMuestra> observadores;
-	
-	//cambiar interfaces por clases en UML
+
 	
 	public Muestra(long idParticipante, String foto,Ubicacion ubicacion) {
 		this.idParticipante = idParticipante;
@@ -27,40 +24,21 @@ public class Muestra implements MuestraObservable {
 		this.fechaCreacion = LocalDate.now();
 		this.opiniones = new ArrayList<Opinion>();
 		this.observadores = new ArrayList<ObservadorMuestra>();
-	}
-
-	public long getIdParticipante() {
-		return idParticipante;
-	}
-
-	public void setIdParticipante(long idParticipante) {
-		this.idParticipante = idParticipante;
-	}
-
-	public String getFoto() {
-		return foto;
-	}
-
-	public void setFoto(String foto) {
-		this.foto = foto;
+		this.estado = new EstadoSinExperto();
+		
 	}
 
 	public LocalDate getDate() {
 		return fechaCreacion;
 	}
-
-	public void setDate(LocalDate date) {
-		this.fechaCreacion = date;
+	
+	public long getIdParticipante() {
+		return idParticipante;
 	}
 
 	public List<Opinion> getOpiniones() {
 		return opiniones;
 	}
-
-	public void setOpiniones(List<Opinion> opiniones) {
-		this.opiniones = opiniones;
-	}
-	
 
 	public TipoOpinion getTipoVinchuca() {
 		return tipoVinchuca;
@@ -71,19 +49,23 @@ public class Muestra implements MuestraObservable {
 	}
 
 	public void agregarOpinion(Opinion opinion) {
-		this.getOpiniones().add(opinion);
+		this.opiniones.add(opinion);
 	}
 	
 	//se verifica si un participante puede opinar, verificando las opiniones anteriores
 	public void recibirOpinion(Opinion opinion) {
-		if(estado.puedeOpinar(opinion) && opinion.getIdParticipante() != this.idParticipante) {
+		if(estado.puedeOpinar(opinion,this) && opinion.getIdParticipante() != this.idParticipante) {
 			this.agregarOpinion(opinion);
-			estado.actualizarEstado();
+			estado.actualizarEstado(opinion,this);
 		}
 	}	
 
 	public TipoOpinion resultadoActual() {
 		return estado.resultadoActual(this);
+	}
+	
+	public boolean estaVerificada() {
+		return estado.estaVerificada();
 	}
 	
 	@Override
@@ -106,6 +88,28 @@ public class Muestra implements MuestraObservable {
 	@Override
 	public void notificarObservadoresValidacion() {
 		this.observadores.forEach(observador -> observador.recibirNotificacionValidacion(this));
+	}
+//agregarUML
+	public int getCantidadExpertos() {
+		return this.getOpiniones().stream().filter(opinion -> opinion.esOpinionExperto()).toList().size();
+	}
+//agregarUML
+	public void cambiarEstado(EstadoVerificacion nuevoEstado) {
+		this.setEstado(nuevoEstado);
+		
+	}
+
+	private void setEstado(EstadoVerificacion nuevoEstado) {
+		this.estado = nuevoEstado;
+	}
+
+	public Ubicacion getUbicacion() {
+		return this.ubicacion;
+	}
+
+	public List<ObservadorMuestra> getObservadores() {
+		return this.observadores;
+		
 	}
 
 		

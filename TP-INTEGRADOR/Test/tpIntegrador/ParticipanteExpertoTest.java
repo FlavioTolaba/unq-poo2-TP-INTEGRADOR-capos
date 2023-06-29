@@ -10,13 +10,13 @@ class ParticipanteExpertoTest {
 
 	private Muestra muestra1;
 	private Opinion opinion1;
-	private ParticipanteExperto participanteExp;
+	private ParticipanteConEstudio participanteExp;
 	
 	@BeforeEach
 		
 	void setUp() throws Exception {
 		muestra1 = mock(Muestra.class);
-		participanteExp =	new ParticipanteExperto("Lucas", 912L);
+		participanteExp =new ParticipanteConEstudio("Lucas", 912L);
 	}
 
 	@Test
@@ -34,7 +34,7 @@ class ParticipanteExpertoTest {
 		participanteExp.enviarMuestra(muestra1);
 		participanteExp.enviarOpinion(opinion1);
 		
-		assertEquals(ClaseParticipante.EXPERTO, participanteExp.getNivelUsuario());
+		assertEquals(ClaseParticipante.EXPERTO, participanteExp.getClaseParticipante());
 	}
 	
 }

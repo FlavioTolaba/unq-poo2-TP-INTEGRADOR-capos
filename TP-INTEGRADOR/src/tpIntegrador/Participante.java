@@ -22,7 +22,7 @@ public abstract class Participante {
     	this.setNombre(nombre);
         this.muestrasEnviadas = new ArrayList<Muestra>();
         this.opinionesRealizadas = new ArrayList<Opinion>();
-        this.setClaseParticipante(ClaseParticipante.BASICO);
+        this.claseParticipante = ClaseParticipante.BASICO;
     }	
     
     private void setNombre(String nombre) {
@@ -94,10 +94,7 @@ public abstract class Participante {
     	return cantidad;	
     }
     
-    public boolean esExperto() {
-    	this.actualizarClaseParticipante();
-    	return this.getCantidadDeMuestrasEnviadas()>=10 && this.getCantidadDeOpinionesEnviadas()>=20;
-    }
+    abstract boolean esExperto() ;
     
     abstract void actualizarClaseParticipante();
 

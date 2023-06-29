@@ -18,13 +18,18 @@ public class LosMasVinchucas  {
 	}
 	
 	public void participanteCargaMuestra(Participante participante, Muestra muestra){
-		//ver constructor
 		this.muestras.add(muestra);
 		participante.enviarMuestra(muestra);
-		//this.zonasDeCobertura notificar nueva muestra
+		this.notificarNuevaMuestraAZonas(muestra);
 	}
-	//participanteCargaMuestra
-	//registrarParticipante
+	public void registrarNuevaZonaDeCobertura(ZonaDeCobertura zona) {
+		this.zonas.add(zona);
+	}
+	
+	private void notificarNuevaMuestraAZonas(Muestra muestra) {
+		this.zonas.forEach(zona -> zona.recibirNotificacionNuevaMuestra(muestra));
+		
+	}
 
 	public void registrarParticipante(Participante participante) {
 		this.participantes.add(participante);
@@ -37,21 +42,18 @@ public class LosMasVinchucas  {
 	public List<Muestra> getMuestras() {
 		return muestras;
 	}
-	public void setMuestras(List<Muestra> muestras) {
-		this.muestras = muestras;
-	}
+
 	
-	//getOrganizacion pide organizacionesSuscriptas a Zonas
 	
 	public void participanteCargaNuevaOpinion(Participante participante2, Muestra muestra2, TipoOpinion tipo) {
-		
-		participante2.enviarOpinion(tipo, muestra2);
-		
+		Opinion opinion1=new Opinion(tipo,participante2);
+		participante2.enviarOpinion(opinion1);
+		muestra2.recibirOpinion(opinion1);
 	}
 	
-	
-	
-	// public void actualizarClaseParticipantes;
+	public void actualizarClaseParticipantes() {
+		this.participantes.forEach(participante -> participante.actualizarClaseParticipante());
+	}
 
 		
 }
